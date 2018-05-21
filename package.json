@@ -1,18 +1,18 @@
 {
-  "name": "minimal-mistakes",
-  "version": "4.11.2",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
+  "name": "opentutorial",
+  "version": "1.0",
+  "description": "开源教程以及博客站",
   "repository": {
     "type": "git",
     "url": "git://github.com/mmistakes/minimal-mistakes.git"
   },
-  "keywords": ["jekyll", "theme", "minimal"],
-  "author": "Michael Rose",
+  "keywords": ["开源", "教程", "技术博客", "Python"],
+  "author": "HuangchaoSYSU",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mmistakes/minimal-mistakes/issues"
   },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://github.com/huangchaosysu/",
   "engines": {
     "node": ">= 0.10.0"
   },
