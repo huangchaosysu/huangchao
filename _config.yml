@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -20,7 +20,7 @@ title                    : "OpenTutorial"
 title_separator          : "-"
 name                     : "HuangChaoSYSU"
 description              : "开源教程与博客站. 顺带会有一些有意思的web应用。主要的教程会有Python教程，scrapy教程，设计模式教程, linux常用配置经验等"
-url                      : "http://opentutorial.info/"  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "http://opentutorial.info"  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "huangchaosysu/opentutorial"  # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "HuangchaoSYSU"
-  avatar           : "/assets/images/avatar.jpg"  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/avatar.jpeg"  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Python programmer. Django, Flask, Golang, Javascript, Vue.js etc."
   location         : "GuangZhou, China"
   email            :
@@ -113,7 +113,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/huangchaosysu"
+  github           : "huangchaosysu"
   gitlab           :
   google_plus      :
   keybase          :
