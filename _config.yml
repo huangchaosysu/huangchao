@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "HuangchaoSYSU"
   avatar           : "/assets/images/avatar.jpeg"  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Python programmer. Django, Flask, Golang, Javascript, Vue.js etc."
+  bio              : "Life is short, I use Python."
   location         : "GuangZhou, China"
   email            :
   uri              :
