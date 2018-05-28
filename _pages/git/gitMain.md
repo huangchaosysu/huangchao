@@ -1,8 +1,8 @@
 ---
 layout: single
 author_profile: true
-permalink: /about/
-title: "About"
+permalink: /git/
+title: "Git教程"
 excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
 toc: true
 ---
