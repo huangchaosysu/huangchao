@@ -5,7 +5,7 @@ title: "集中式VS分布式"
 excerpt: "集中式VS分布式"
 sidebar:
   nav: "gitnav"
-toc: true
+# toc: true
 ---
 
 Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分布式版本控制系统，集中式和分布式版本控制系统有什么区别呢？
