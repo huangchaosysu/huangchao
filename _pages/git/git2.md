@@ -5,7 +5,7 @@ title: "Git诞生"
 excerpt: "Git是如何诞生的"
 sidebar:
   nav: "gitnav"
-toc: true
+# toc: true
 ---
 
 很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。
