@@ -4,12 +4,12 @@ main:
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Git教程"
     url: /git/
-  - title: "Sample Posts"
-    url: /year-archive/
-  - title: "Sample Collections"
-    url: /collection-archive/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
   - title: "Radio"
-    url: /sitemap/
+    url: http://radio.opentutorial.info
 
 gitnav:
   - title: "认识git"
