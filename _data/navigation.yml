@@ -8,5 +8,12 @@ main:
     url: /year-archive/
   - title: "Sample Collections"
     url: /collection-archive/
-  - title: "Sitemap"
+  - title: "Radio"
     url: /sitemap/
+
+
+gitnav:
+  - title: "前言"
+    url: /git/1/
+  - title: "git简介"
+    url : /git/2/
