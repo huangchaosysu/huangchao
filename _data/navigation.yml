@@ -11,9 +11,13 @@ main:
   - title: "Radio"
     url: /sitemap/
 
-
 gitnav:
-  - title: "前言"
-    url: /git/1/
-  - title: "git简介"
-    url : /git/2/
+  - title: "认识git"
+  children:
+    - title: "前言"
+      url: /git/1/
+    - title: "git简介"
+      url : /git/2/
+    - title: "git诞生"
+      url : /git/3/
+    - title: "集中VS分布"

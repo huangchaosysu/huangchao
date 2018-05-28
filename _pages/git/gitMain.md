@@ -1,6 +1,5 @@
 ---
 layout: single
-author_profile: true
 permalink: /git/
 title: "Git教程"
 excerpt: "文章简介"
@@ -9,7 +8,7 @@ sidebar:
 # toc: true
 ---
 
-![git]("/assets/images/gitimg/0")  
+![git](/assets/images/gitimg/0)  
 
 史上最浅显易懂的Git教程！  
 
