@@ -20,3 +20,5 @@ gitnav:
         url : /git/2/
       - title: "集中VS分布"
         url : /git/3/
+      - title: "安装git"
+        url : /git/4/
