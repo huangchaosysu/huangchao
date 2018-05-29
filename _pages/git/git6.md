@@ -5,7 +5,7 @@ title: "查看文件状态"
 excerpt: "查看文件状态"
 sidebar:
   nav: "gitnav"
-toc: true
+# toc: true
 ---
 
 前面已经成功地添加并提交了一个readme.txt文件，现在，是时候继续工作了，于是，我们继续修改readme.txt文件，改成如下内容：
