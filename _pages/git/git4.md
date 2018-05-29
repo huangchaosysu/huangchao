@@ -1,8 +1,8 @@
 ---
 layout: single
 permalink: /git/4/
-title: "集中式VS分布式"
-excerpt: "集中式VS分布式"
+title: "安装git"
+excerpt: "安装git"
 sidebar:
   nav: "gitnav"
 toc: true
