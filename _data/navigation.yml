@@ -24,3 +24,18 @@ gitnav:
         url : /git/4/
       - title: "第一个版本库"
         url : /git/5/
+
+  - title: "版本控制"
+    children:
+      - title: "查看状态"
+        url: /git/6/
+      - title: "版本回退"
+        url: /git/7/
+      - title: "工作去和暂存区"
+        url : /git/8/
+      - title: "管理修改"
+        url : /git/9/
+      - title: "撤销修改"
+        url : /git/10/
+      - title: "删除文件"
+        url : /git/11/
