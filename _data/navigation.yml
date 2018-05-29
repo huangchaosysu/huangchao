@@ -23,4 +23,4 @@ gitnav:
       - title: "安装git"
         url : /git/4/
       - title: "第一个版本库"
-      url : /git/5/
+        url : /git/5/
