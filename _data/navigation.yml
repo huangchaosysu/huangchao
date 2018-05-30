@@ -31,7 +31,7 @@ gitnav:
         url: /git/6/
       - title: "版本回退"
         url: /git/7/
-      - title: "工作去和暂存区"
+      - title: "工作区和暂存区"
         url : /git/8/
       - title: "管理修改"
         url : /git/9/
