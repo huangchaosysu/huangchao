@@ -54,3 +54,5 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 确保你拥有一个GitHub账号后，我们就即将开始远程仓库的学习。
 
 批注: 这里删除了打击svn的内容，另外，不设ssh key，直接走https，然后用账号进行验证也是可以的。git远程仓库的地址一般都有2个，一个是走ssh的地址，例如git@github.com:xxx/xxxx.git, 另外一个就是走https的，https://github.com/xxx/xxxx.git
+
+ps: 提供代码托管的不止github一家，只不过github的名气最大。都有那些就留给读者去探索了。
