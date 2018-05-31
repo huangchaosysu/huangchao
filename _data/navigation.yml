@@ -39,3 +39,13 @@ gitnav:
         url : /git/10/
       - title: "删除文件"
         url : /git/11/
+
+  - title: "远程仓库"
+    children:
+      - title: "仓库简介"
+        url: /git/12/
+      - title: "添加远程仓库"
+        url: /git/13/
+      - title: "从远程仓库克隆"
+        url : /git/14/
+
