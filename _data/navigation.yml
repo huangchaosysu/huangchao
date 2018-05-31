@@ -48,4 +48,17 @@ gitnav:
         url: /git/13/
       - title: "从远程仓库克隆"
         url : /git/14/
-
+  - title: "分支管理"
+    children:
+      - title: "什么是分支"
+        url: /git/15/
+      - title: "创建与合并分支"
+        url: /git/16/
+      - title: "解决冲突"
+        url : /git/17/
+      - title: "分支管理策略"
+        url: /git/18/
+      - title: "Bug分支"
+        url: /git/19/
+      - title: "feature分支"
+        url : /git/20/
