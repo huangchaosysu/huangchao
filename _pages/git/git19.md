@@ -1,8 +1,8 @@
 ---
 layout: single
 permalink: /git/19/
-title: "Bug修复过程"
-excerpt: "Bug修复过程"
+title: "Bug修复流程"
+excerpt: "Bug修复流程"
 sidebar:
   nav: "gitnav"
 # toc: true
