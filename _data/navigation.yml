@@ -66,3 +66,12 @@ gitnav:
         url: /git/21/
       - title: "变基"
         url : /git/22/
+
+  - title: "标签管理"
+    children:
+      - title: "初识标签（Tag）"
+        url: /git/23/
+      - title: "创建标签"
+        url: /git/24/
+      - title: "操作标签"
+        url : /git/25/
