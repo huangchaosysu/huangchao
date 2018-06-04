@@ -75,3 +75,14 @@ gitnav:
         url: /git/24/
       - title: "操作标签"
         url : /git/25/
+
+python:
+  - title: "PYTHON简介"
+    children:
+      - title: "简介"
+        url: /python/introduction/
+      - title: "安装python"
+        url : /python/install/
+      - title: "python解释器"
+        url : /python/interpreter/
+
