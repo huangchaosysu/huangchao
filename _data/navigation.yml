@@ -86,3 +86,12 @@ python:
       - title: "python解释器"
         url : /python/interpreter/
 
+  - title: "python代码初探"
+    children:
+      - title: "Hello world"
+        url: /python/helloworld/
+      - title: "开发工具"
+        url : /python/tools/
+      - title: "输入输出"
+        url : /python/screenio/
+
