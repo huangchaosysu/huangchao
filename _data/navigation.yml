@@ -112,3 +112,13 @@ python:
       - title: "dict和set"
         url : /python/dns/
 
+  - title: "函数"
+    children:
+      - title: "调用函数"
+        url: /python/callfunc/
+      - title: "定义函数"
+        url : /python/definefunc/
+      - title: "函数参数"
+        url : /python/funcargs/
+      - title: "递归"
+        url : /python/recursion/
