@@ -4,8 +4,8 @@ main:
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Git教程"
     url: /git/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "Python入门"
+    url: /python/introduction/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   - title: "Radio"
@@ -94,4 +94,21 @@ python:
         url : /python/tools/
       - title: "输入输出"
         url : /python/screenio/
+
+  - title: "基础语法"
+    children:
+      - title: "语法简介"
+        url: /python/grammaintro/
+      - title: "数据类型和变量"
+        url : /python/dtypesnvariables/
+      - title: "字符串和编码"
+        url : /python/strings/
+      - title: "list和tuple"
+        url: /python/lnt/
+      - title: "条件判断"
+        url : /python/if/
+      - title: "循环"
+        url : /python/loop/
+      - title: "dict和set"
+        url : /python/dns/
 
