@@ -122,3 +122,15 @@ python:
         url : /python/funcargs/
       - title: "递归"
         url : /python/recursion/
+  - title: "可迭代类型"
+    children:
+      - title: "切片"
+        url: /python/slice/
+      - title: "迭代"
+        url : /python/iteration/
+      - title: "列表解析(生成)"
+        url : /python/listsGenerator/
+      - title: "生成器"
+        url : /python/yield/
+      - title: "迭代器"
+        url : /python/iterator/
