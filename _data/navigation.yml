@@ -122,6 +122,7 @@ python:
         url : /python/funcargs/
       - title: "递归"
         url : /python/recursion/
+
   - title: "可迭代类型"
     children:
       - title: "切片"
@@ -134,3 +135,22 @@ python:
         url : /python/yield/
       - title: "迭代器"
         url : /python/iterator/
+
+  - title: "函数高级特性"
+    children:
+      - title: "高阶函数"
+        url: /python/hofunc/
+      - title: "map/reduce"
+        url : /python/mr/
+      - title: "filter"
+        url : /python/filter/
+      - title: "sorted"
+        url : /python/sorted/
+      - title: "返回函数"
+        url : /python/rtfunc/
+      - title: "匿名函数"
+        url : /python/lambda/
+      - title: "装饰器"
+        url : /python/decorator/
+      - title: "偏函数"
+        url : /python/pf/
