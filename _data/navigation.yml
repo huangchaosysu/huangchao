@@ -154,3 +154,10 @@ python:
         url : /python/decorator/
       - title: "偏函数"
         url : /python/pf/
+
+  - title: "代码组织"
+    children:
+      - title: "模块"
+        url: /python/module/
+      - title: "第三方模块"
+        url : /python/tpmodule/
