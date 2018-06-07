@@ -161,3 +161,18 @@ python:
         url: /python/module/
       - title: "第三方模块"
         url : /python/tpmodule/
+
+  - title: "面向对象"
+    children:
+      - title: "基本概念"
+        url: /python/concept/
+      - title: "类和实例"
+        url : /python/class/
+      - title: "访问限制"
+        url: /python/accessrestriction/
+      - title: "继承和多态"
+        url : /python/inheritance/
+      - title: "获取对象信息"
+        url: /python/objinfo/
+      - title: "实例属性和类属性"
+        url : /python/attributes/
