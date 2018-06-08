@@ -438,6 +438,24 @@
  <lastmod>2018-06-06</lastmod>
  <changefreq>daily</changefreq>
 </url>
+<url>
+ <loc>http://opentutorial.info/python/try/</loc>
+ <priority>0.8</priority>
+ <lastmod>2018-06-06</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>http://opentutorial.info/python/debug/</loc>
+ <priority>0.8</priority>
+ <lastmod>2018-06-06</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>http://opentutorial.info/python/fileio/</loc>
+ <priority>0.8</priority>
+ <lastmod>2018-06-06</lastmod>
+ <changefreq>daily</changefreq>
+</url>
 
 <url>
  <loc>http://radio.opentutorial.info/</loc>

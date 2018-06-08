@@ -189,5 +189,21 @@ python:
         url : /python/specialclass/
       - title: "枚举类"
         url: /python/enumeration/
-      - title: "元类"
+      - title: "元类(初学勿看)"
         url : /python/metaclass/
+
+  - title: "异常处理"
+    children:
+      - title: "捕捉异常"
+        url: /python/try/
+      - title: "代码调试"
+        url : /python/debug/
+      - title: "多重继承"
+        url: /python/multi_inheritance/
+      - title: "定制类"
+        url : /python/specialclass/
+
+  - title: "IO"
+    children:
+      - title: "文件读写"
+        url: /python/fileio/
