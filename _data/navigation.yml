@@ -176,3 +176,18 @@ python:
         url: /python/objinfo/
       - title: "实例属性和类属性"
         url : /python/attributes/
+
+  - title: "面向对象高级特性"
+    children:
+      - title: "__slots__"
+        url: /python/slots/
+      - title: "@property"
+        url : /python/property/
+      - title: "多重继承"
+        url: /python/multi_inheritance/
+      - title: "定制类"
+        url : /python/specialclass/
+      - title: "枚举类"
+        url: /python/enumeration/
+      - title: "元类"
+        url : /python/metaclass/
