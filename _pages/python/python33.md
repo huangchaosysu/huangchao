@@ -1,6 +1,6 @@
 ---
 layout: single
-permalink: /python/class/
+permalink: /python/ooclass/
 title: "类和实例"
 excerpt: "类和实例"
 sidebar:

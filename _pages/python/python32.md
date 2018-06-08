@@ -1,6 +1,6 @@
 ---
 layout: single
-permalink: /python/concept/
+permalink: /python/ooconcept/
 title: "基本概念"
 excerpt: "基本概念"
 sidebar:

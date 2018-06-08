@@ -165,9 +165,9 @@ python:
   - title: "面向对象"
     children:
       - title: "基本概念"
-        url: /python/concept/
+        url: /python/ooconcept/
       - title: "类和实例"
-        url : /python/class/
+        url : /python/ooclass/
       - title: "访问限制"
         url: /python/accessrestriction/
       - title: "继承和多态"
