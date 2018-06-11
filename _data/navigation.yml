@@ -207,3 +207,9 @@ python:
     children:
       - title: "文件读写"
         url: /python/fileio/
+      - title: "字符串IO"
+        url: /python/strIo/
+      - title: "操作文件和目录"
+        url: /python/foperations/
+      - title: "序列化"
+        url: /python/serialization/
