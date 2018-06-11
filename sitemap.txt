@@ -73,6 +73,9 @@ http://opentutorial.info/python/metaclass/
 http://opentutorial.info/python/try/
 http://opentutorial.info/python/debug/
 http://opentutorial.info/python/fileio/
+http://opentutorial.info/python/strIo/
+http://opentutorial.info/python/foperations/
+http://opentutorial.info/python/serialization/
 http://radio.opentutorial.info/
 http://opentutorial.info/mailto:opentutorial@outlook.com/
 http://opentutorial.info/feed.xml
