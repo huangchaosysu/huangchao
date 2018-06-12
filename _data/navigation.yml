@@ -229,3 +229,24 @@ python:
 
   - title: "正则表达式"
     url: "/python/re/"
+
+  - title: "常用模块介绍"
+    children:
+      - title: "datetime"
+        url: /python/datetime/
+      - title: "collections"
+        url: /python/collections/
+      - title: "base64"
+        url: /python/base64/
+      - title: "struct"
+        url: /python/struct/
+      - title: "hashlib"
+        url: /python/hashlib/
+      - title: "hmac"
+        url: /python/hmac/
+      - title: "itertools"
+        url: /python/itertools/
+      - title: "contextlib"
+        url: /python/contextlib/
+      - title: "requests"
+        url: /python/requests/

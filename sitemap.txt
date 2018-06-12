@@ -83,3 +83,12 @@ http://opentutorial.info/python/multithd/
 http://opentutorial.info/python/tvp/
 http://opentutorial.info/python/tlocal/
 http://opentutorial.info/python/re/
+http://opentutorial.info/python/datetime/
+http://opentutorial.info/python/collections/
+http://opentutorial.info/python/base64/
+http://opentutorial.info/python/struct/
+http://opentutorial.info/python/hashlib/
+http://opentutorial.info/python/hmac/
+http://opentutorial.info/python/itertools/
+http://opentutorial.info/python/contextlib/
+http://opentutorial.info/python/requests/
