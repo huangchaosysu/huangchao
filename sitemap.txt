@@ -82,3 +82,4 @@ http://opentutorial.info/python/multipro/
 http://opentutorial.info/python/multithd/
 http://opentutorial.info/python/tvp/
 http://opentutorial.info/python/tlocal/
+http://opentutorial.info/python/re/

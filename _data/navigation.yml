@@ -226,3 +226,6 @@ python:
         url: /python/tvp/
       - title: "ThreadLocal"
         url: /python/tlocal/
+
+  - title: "正则表达式"
+    url: "/python/re/"
