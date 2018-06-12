@@ -250,3 +250,6 @@ python:
         url: /python/contextlib/
       - title: "requests"
         url: /python/requests/
+
+  - title: "virtualenv"
+    url: "/python/virtualenv/"
