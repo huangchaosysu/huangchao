@@ -213,3 +213,16 @@ python:
         url: /python/foperations/
       - title: "序列化"
         url: /python/serialization/
+
+  - title: "并发编程"
+    children:
+      - title: "进程和线程"
+        url: /python/pnt/
+      - title: "多进程"
+        url: /python/multipro/
+      - title: "多线程"
+        url: /python/multithd/
+      - title: "进程VS线程"
+        url: /python/tvp/
+      - title: "ThreadLocal"
+        url: /python/tlocal/

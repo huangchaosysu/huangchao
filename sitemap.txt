@@ -77,5 +77,8 @@ http://opentutorial.info/python/strIo/
 http://opentutorial.info/python/foperations/
 http://opentutorial.info/python/serialization/
 http://radio.opentutorial.info/
-http://opentutorial.info/mailto:opentutorial@outlook.com/
-http://opentutorial.info/feed.xml
+http://opentutorial.info/python/pnt/
+http://opentutorial.info/python/multipro/
+http://opentutorial.info/python/multithd/
+http://opentutorial.info/python/tvp/
+http://opentutorial.info/python/tlocal/
