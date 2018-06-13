@@ -8,6 +8,8 @@ main:
     url: /python/introduction/
   # - title: "Sample Collections"
   #   url: /collection-archive/
+  - title: "我的BLOG"
+    url: http://opentutorial.info/blog/
   - title: "Radio"
     url: http://radio.opentutorial.info
 
