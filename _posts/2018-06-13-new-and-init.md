@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+author_profile: true
 title: "__new__()"
 excerpt: "Python特殊方法之__new__()"
 date: 2018-06-15 16:01:53
