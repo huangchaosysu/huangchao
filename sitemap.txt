@@ -92,3 +92,4 @@ http://opentutorial.info/python/hmac/
 http://opentutorial.info/python/itertools/
 http://opentutorial.info/python/contextlib/
 http://opentutorial.info/python/requests/
+http://opentutorial.info/blog/index.html
