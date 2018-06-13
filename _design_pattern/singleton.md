@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "单例(Singleton)模式"
 excerpt: "设计模式之单例模式(Singleton)-Python实现"
 ---
