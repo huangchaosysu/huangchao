@@ -1,8 +1,8 @@
 ---
 layout: single
-permalink: /git/24/
-title: "创建标签"
-excerpt: "创建标签"
+permalink: /git/25/
+title: "操作标签"
+excerpt: "操作标签"
 sidebar:
   nav: "gitnav"
 # toc: true
