@@ -6,12 +6,12 @@ main:
     url: /git/
   - title: "Python入门"
     url: /python/introduction/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
   - title: "我的BLOG"
     url: http://opentutorial.info/blog/index.html
   - title: "Radio"
     url: http://radio.opentutorial.info
+  - title: "ABOUT"
+    url: /about/
 
 gitnav:
   - title: "认识git"
