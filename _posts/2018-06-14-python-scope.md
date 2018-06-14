@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: "Python作用域"
-excerpt: " Python-scope-变量-作用域"
 date: 2018-06-14 10:45:52
 tags:
   - Python
