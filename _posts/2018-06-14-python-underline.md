@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: "Pycharm下划线变量"
-excerpt: "_xxx,__xxx,__xxx___这样名字的变量都代表什么呢？"
 date: 2018-06-14 15:17:52
 tags:
   - Python

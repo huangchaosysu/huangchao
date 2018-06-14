@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: "Python__str__和__repr__的区别"
-excerpt: " Python__str__ __repr__的区别"
 date: 2018-06-14 15:11:52
 tags:
   - Python

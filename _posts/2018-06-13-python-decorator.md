@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: "装饰器"
-excerpt: " Python-decorator-装饰器"
 date: 2018-06-13 16:01:52
 tags:
   - Python

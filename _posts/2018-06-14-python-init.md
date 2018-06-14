@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: "Python__init__.py"
-excerpt: " Python-__init__.py的作用"
 date: 2018-06-14 11:45:52
 tags:
   - Python
