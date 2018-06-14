@@ -3,12 +3,12 @@ layout: single
 author_profile: true
 title: "装饰器"
 excerpt: " Python-decorator-装饰器"
-date: 2018-06-15 16:01:52
+date: 2018-06-13 16:01:52
 tags:
   - Python
 categories:
   - Python文章
-toc: true
+# toc: true
 ---
 
 在Python中，装饰器实现是一种非常方便的功能，其可以看做是decorator模式的一种实现（有兴趣的可以看下装饰器模式，后面本人也会写一边关于这个设计模式的）。

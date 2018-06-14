@@ -3,7 +3,7 @@ layout: single
 author_profile: true
 title: "单例(Singleton)模式"
 excerpt: "设计模式之单例模式(Singleton)-Python实现"
-date: 2018-06-15 16:01:52
+date: 2018-06-13 16:01:52
 tags:
   - 设计模式
   - Singleton
