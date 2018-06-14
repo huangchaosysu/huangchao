@@ -1,13 +1,13 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Home"
+    url: http://opentutorial.info/
+  # - title: "Quick-Start Guide"
+  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Git教程"
     url: /git/
   - title: "Python入门"
     url: /python/introduction/
-  # - title: "我的BLOG"
-  #   url: http://opentutorial.info/blog/index.html
   - title: "Radio"
     url: http://radio.opentutorial.info
   - title: "ABOUT"
