@@ -103,3 +103,5 @@ http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-underline/
 http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-pycharm/
 http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-str-repr/
 http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-init/
+http://opentutorial.info/linux/sed/
+http://opentutorial.info/linux/grep/
