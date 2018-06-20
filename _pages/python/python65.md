@@ -1,8 +1,7 @@
 ---
 layout: single
-permalink: /python/itertools/
-title: "itertools"
-excerpt: "itertools"
+permalink: /python/requests/
+title: "requests"
 sidebar:
   nav: "python"
 # toc: true
