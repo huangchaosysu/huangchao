@@ -164,9 +164,8 @@ def year_archive(request, year):
 上面的代码调用了```new/year_archive.html```这个模板。Django会根据settings文件里面的DIRS这个配置所指定的目录来搜索模板。下面是一个模板的示例
 
 *mysite/news/templates/news/year_archive.html*
-```
 
-{% extends "xxx.html" %}
+```
 {% block title %}Articles for {{ year }}{% endblock %}
 
 {% block content %}
