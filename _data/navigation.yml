@@ -269,3 +269,7 @@ django:
     children:
       - title: "PART-1"
         url: /django/firstapp1/
+      - title: "PART-2"
+        url: /django/firstapp2/
+      - title: "PART-3"
+        url: /django/firstapp3/
