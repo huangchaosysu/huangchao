@@ -170,7 +170,7 @@ def year_archive(request, year):
 {% block title %}Articles for {{ year }}{% endblock %}
 
 {% block content %}
-<span><</span>h1<span>></span>Articles for {{ year }}<span><</span>/h1<span>></span>
+<h1>Articles for {{ year }}</h1>
 
 {% for article in article_list %}
     <p>{{ article.headline }}</p>
@@ -178,21 +178,4 @@ def year_archive(request, year):
     <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
 {% endfor %}
 {% endblock %}
-```
-
-变量由双大括号包围，```{{ article.headline }}```表示将article对象的headline的值替换在这里。这里，点号既可以表示对象属性查询也可以表示字典查询，索引查询甚至函数调用。上面的示例中，```{{ article.pub_date|date:"F j, Y" }}```，这段代码使用了很像unix（或者linux）系统中的管道的语法（'｜'这个字符），这是Django中的模板过滤器（template filter），过滤器可以对变量的值做进一步的处理。该例中，date这个过滤器把python的时间对象格式化为一定的格式。在Django的模板语法中，过滤器可以嵌套多层，也允许用户自己编写过滤器
-
-关于Django的模板，最核心的是Django支持模板的继承。就像面向对象编程中的类继承一样，在Django中可以使用```{% extends "base.html" %}```来实现模板的继承。其逻辑是，先载入base.html这个模板，然后用当前模板的内容来填充base.html中定义的众多block。下面是一个示例：
-
-```
-{% load static %}
-<html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <img src="{% static "images/sitelogo.png" %}" alt="Logo" />
-    {% block content %}{% endblock %}
-</body>
-</html>
 ```
