@@ -78,7 +78,7 @@ gitnav:
       - title: "创建标签"
         url: /git/24/
       - title: "操作标签"
-        url : /git/25/
+        url: /git/25/
 
 python:
   - title: "PYTHON简介"
@@ -86,9 +86,9 @@ python:
       - title: "简介"
         url: /python/introduction/
       - title: "安装python"
-        url : /python/install/
+        url: /python/install/
       - title: "python解释器"
-        url : /python/interpreter/
+        url: /python/interpreter/
 
   - title: "python代码初探"
     children:
@@ -258,13 +258,13 @@ python:
   - title: "virtualenv"
     url: "/python/virtualenv/"
 
-  django:
+django:
   - title: "Django入门"
     children:
       - title: "概览"
         url: /django/overview/
       - title: "安装django"
-        url : /django/install/
+        url: /django/install/
   - title: "第一个Django APP"
     children:
       - title: "PART-1"
