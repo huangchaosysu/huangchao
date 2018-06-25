@@ -183,7 +183,7 @@ mysite/news/templates/news/year_archive.html
 ```
 
 <p>变量由双大括号包围，<code>{{ article.headline }}</code>表示将article对象的headline的值替换在这里。这里，点号既可以表示对象属性查询也可以表示字典查询，索引查询甚至函数调用。上面的示例中，<code>{{ article.pub_date|date:"F j, Y" }}</code>，这段代码使用了很像unix（或者linux）系统中的管道的语法（'｜'这个字符），这是Django中的模板过滤器（template filter），过滤器可以对变量的值做进一步的处理。该例中，date这个过滤器把python的时间对象格式化为一定的格式。在Django的模板语法中，过滤器可以嵌套多层，也允许用户自己编写过滤器</p>
-<p>关于Django的模板，最核心的是Django支持模板的继承。就像面向对象编程中的类继承一样，在Django中可以使用<code>{% extends "base.html" %}</code>来实现模板的继承。其逻辑是，先载入base.html这个模板，然后用当前模板的内容来填充base.html中定义的众多block。下面是一个示例：</p>
+<p>关于Django的模板，最核心的是Django支持模板的继承。就像面向对象编程中的类继承一样，在Django中可以使用<code>\{\% extends "base.html" \%\}</code>来实现模板的继承。其逻辑是，先载入base.html这个模板，然后用当前模板的内容来填充base.html中定义的众多block。下面是一个示例：</p>
 
 <pre><span></span><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
