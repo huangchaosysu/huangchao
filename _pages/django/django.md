@@ -163,39 +163,3 @@ def year_archive(request, year):
 ### 使用模板
 上面的代码调用了```new/year_archive.html```这个模板。Django会根据settings文件里面的DIRS这个配置所指定的目录来搜索模板。下面是一个模板的示例
 
-*mysite/news/templates/news/year_archive.html*
-
-```
-{% block title %}Articles for {{ year }}{% endblock %}
-
-{% block content %}
-<h1>Articles for {{ year }}</h1>
-
-{% for article in article_list %}
-    <p>{{ article.headline }}</p>
-    <p>By {{ article.reporter.full_name }}</p>
-    <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
-{% endfor %}
-{% endblock %}
-```
-
-变量由双大括号包围，```{{ article.headline }}```表示将article对象的headline的值替换在这里。这里，点号既可以表示对象属性查询也可以表示字典查询，索引查询甚至函数调用。上面的示例中，```{{ article.pub_date|date:"F j, Y" }}```，这段代码使用了很像unix（或者linux）系统中的管道的语法（'｜'这个字符），这是Django中的模板过滤器（template filter），过滤器可以对变量的值做进一步的处理。该例中，date这个过滤器把python的时间对象格式化为一定的格式。在Django的模板语法中，过滤器可以嵌套多层，也允许用户自己编写过滤器
-
-关于Django的模板，最核心的是Django支持模板的继承。就像面向对象编程中的类继承一样，在Django中可以使用```{% extends "base.html" %}```来实现模板的继承。其逻辑是，先载入base.html这个模板，然后用当前模板的内容来填充base.html中定义的众多block。下面是一个示例：
-
-```
-{% load static %}
-<html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <img src="{% static "images/sitelogo.png" %}" alt="Logo" />
-    {% block content %}{% endblock %}
-</body>
-</html>
-```
-
-base.html这个模板定义了整个页面的框架，并且准备好了一个又一个的坑来给它的子模板（继承base.html的模板）来填，这些坑就是你看到的这些```block```。这样的好处就是代码复用，我们不用给相似的页面写重复的代码
-
-<h4>这只是皮毛</h4>
