@@ -127,3 +127,35 @@ from . import models
 
 admin.site.register(models.Article)
 ```
+
+### 设计url
+简洁、漂亮的URL是高质量web应用的重要组成部分。Django提倡漂亮的url设计方式，反对将.html, .php等令人讨厌的东西放在url的末尾。想要给app定义url，我们需要创建一个叫做```URLConf```的Python模块.这个模块存储一个URL到callback的映射。这个模块的另外一个作用就是把URL从Python代码中解藕出来。下面是Reporter/Article的一个urlconf示例
+
+```
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('articles/<int:year>/', views.year_archive),
+    path('articles/<int:year>/<int:month>/', views.month_archive),
+    path('articles/<int:year>/<int:month>/<int:pk>/', views.article_detail),
+]
+```
+
+上面的代码把使用简单的正则表达式表示的url映射到一个python函数（Django里叫做View，其实就是普通的python函数）并使用括号来从url里抓去参数的值。一旦匹配，Django就会调用指定的View。每个view在调用时都会传入一个request对象，这个对象保存了该次http请求相关的信息，前面提到的url抓取的值也会被当做参数传入view。例如“/articles/2005/05/39323/”这个url会调用```news.views.article_detail(request, '2005', '05', '39323')```
+
+### 编写View
+在Django中，每个View都必须做2件事中的一个，返回一个HttpResponse对象或者Http404，在满足这一条件的情况下，我们可以做其他任意想做的事.通常情况下一个View里面的处理流程为，获取参数，根据参数来查询数据并计算得到结果，把结果渲染成html并返回
+
+```
+mysite/news/views.py
+from django.shortcuts import render
+
+from .models import Article
+
+def year_archive(request, year):
+    a_list = Article.objects.filter(pub_date__year=year)
+    context = {'year': year, 'article_list': a_list}
+    return render(request, 'news/year_archive.html', context)
+```
