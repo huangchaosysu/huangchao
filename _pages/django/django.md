@@ -13,7 +13,7 @@ Django诞生于新闻工作室这种快节奏的环境中，它的设计初衷�
 ### 设计Model
 虽然使用Django的时候并不一定要使用数据库，但是Django自带了一个[ORM](http://baike.baidu.com/link?url=RSaX7MasszQDsum0g-adzY1dmLJ_jNfm2s8VVJDjspfibg6HOXDktD6v70y3ByqY72AjfmcUPSJNkwjBjh2eiq) 模块来帮助你使用纯python代码来定义数据库的结构并访问数据库。Django的这一套数据建模语法提供了多种描述数据库中的表结构（数据模型）的方式。下面是一个示例:
 
-<em>mysite/news/models.py</em>
+*mysite/news/models.py*
 ```
 from django.db import models
 
@@ -34,13 +34,14 @@ class Article(models.Model):
 ```
 
 ### 生成数据库表
-<p>有了Model可以通过运行Django命令行工具来自动生成数据库的表结构。在命令行模式下运行如下命令将会自动的根据上面所定义的Model在数据库中生成对应的表。migrate命令会搜索所有可用的Model，根据这些Model的定义在数据库中创建对应的表，如果表已经存在那么会更新表</p>
-<pre>$ python3 manage.py migrate</pre>
+有了Model可以通过运行Django命令行工具来自动生成数据库的表结构。在命令行模式下运行如下命令将会自动的根据上面所定义的Model在数据库中生成对应的表。migrate命令会搜索所有可用的Model，根据这些Model的定义在数据库中创建对应的表，如果表已经存在那么会更新表
+
+    $ python3 manage.py migrate
 
 ### 试用API
-<p>完成以上步骤后，你就可以使用Django提供的丰富的API来访问数据库了。以下代码展示了Django API的使用方法。因为涉及到app等概念，待后面我们讲到这些概念的时候再来运行这些代码会更好一点，这里先做个演示</p>
+完成以上步骤后，你就可以使用Django提供的丰富的API来访问数据库了。以下代码展示了Django API的使用方法。因为涉及到app等概念，待后面我们讲到这些概念的时候再来运行这些代码会更好一点，这里先做个演示
 
-<pre>
+```
 # Import the models we created from our "news" app
 >>> from news.models import Reporter, Article
 
@@ -104,14 +105,13 @@ DoesNotExist: Reporter matching query does not exist.
 
 # 删除一条数据库记录
 >>> r.delete()
-</pre><br>
+```
 
 ### admin接口
-<p>Django提供了一个可以用于生产环境的管理界面，它是一个基于web的应用，用户登录后，可以对数据库的内容进行增删改查等操作,这样就免去了在程序中编写专门的接口来更新数据库的麻烦</p>
+Django提供了一个可以用于生产环境的管理界面，它是一个基于web的应用，用户登录后，可以对数据库的内容进行增删改查等操作,这样就免去了在程序中编写专门的接口来更新数据库的麻烦
 
-<em>mysite/news/models.py
-</em>
-<pre>
+*mysite/news/models.py*
+```
 from django.db import models
 
 class Article(models.Model):
@@ -119,18 +119,18 @@ class Article(models.Model):
     headline = models.CharField(max_length=200)
     content = models.TextField()
     reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
-</pre>
-<em>mysite/news/admin.py</em>
-<pre>
+```
+*mysite/news/admin.py*
+```
 from django.contrib import admin
 
 from . import models
 
 admin.site.register(models.Article)
-</pre>
+```
 
 ### 设计url
-<p>简洁、漂亮的URL是高质量web应用的重要组成部分。Django提倡漂亮的url设计方式，反对将.html, .php等令人讨厌的东西放在url的末尾。想要给app定义url，我们需要创建一个叫做<a>URLConf</a>的Python模块.这个模块存储一个URL到callback的映射。这个模块的另外一个作用就是把URL从Python代码中解藕出来。下面是Reporter/Article的一个urlconf示例</p>
+简洁、漂亮的URL是高质量web应用的重要组成部分。Django提倡漂亮的url设计方式，反对将.html, .php等令人讨厌的东西放在url的末尾。想要给app定义url，我们需要创建一个叫做```URLConf```的Python模块.这个模块存储一个URL到callback的映射。这个模块的另外一个作用就是把URL从Python代码中解藕出来。下面是Reporter/Article的一个urlconf示例
 
 ```
 from django.urls import path
@@ -144,10 +144,10 @@ urlpatterns = [
 ]
 ```
 
-<p>上面的代码把使用简单的正则表达式表示的url映射到一个python函数（Django里叫做View，其实就是普通的python函数）并使用括号来从url里抓去参数的值。一旦匹配，Django就会调用指定的View。每个view在调用时都会传入一个request对象，这个对象保存了该次http请求相关的信息，前面提到的url抓取的值也会被当做参数传入view。例如“/articles/2005/05/39323/”这个url会调用<code>news.views.article_detail(request, '2005', '05', '39323')</code></p>
+上面的代码把使用简单的正则表达式表示的url映射到一个python函数（Django里叫做View，其实就是普通的python函数）并使用括号来从url里抓去参数的值。一旦匹配，Django就会调用指定的View。每个view在调用时都会传入一个request对象，这个对象保存了该次http请求相关的信息，前面提到的url抓取的值也会被当做参数传入view。例如“/articles/2005/05/39323/”这个url会调用```news.views.article_detail(request, '2005', '05', '39323')```
 
 ### 编写View
-<p>在Django中，每个View都必须做2件事中的一个，返回一个HttpResponse对象或者Http404，在满足这一条件的情况下，我们可以做其他任意想做的事.通常情况下一个View里面的处理流程为，获取参数，根据参数来查询数据并计算得到结果，把结果渲染成html并返回</p>
+在Django中，每个View都必须做2件事中的一个，返回一个HttpResponse对象或者Http404，在满足这一条件的情况下，我们可以做其他任意想做的事.通常情况下一个View里面的处理流程为，获取参数，根据参数来查询数据并计算得到结果，把结果渲染成html并返回
 
 ```
 mysite/news/views.py
@@ -162,7 +162,7 @@ def year_archive(request, year):
 ```
 
 ### 使用模板
-<p>上面的代码调用了<code>new/year_archive.html</code>这个模板。Django会根据settings文件里面的DIRS这个配置所指定的目录来搜索模板。下面是一个模板的示例</p>
+上面的代码调用了```new/year_archive.html```这个模板。Django会根据settings文件里面的DIRS这个配置所指定的目录来搜索模板。下面是一个模板的示例
 
 ```
 mysite/news/templates/news/year_archive.html
@@ -199,7 +199,7 @@ mysite/news/templates/news/year_archive.html
 </html>
 ```
 
-<p>base.html这个模板定义了整个页面的框架，并且准备好了一个又一个的坑来给它的子模板（继承base.html的模板）来填，这些坑就是你看到的这些<code>block</code>。这样的好处就是代码复用，我们不用给相似的页面写重复的代码</p>
+base.html这个模板定义了整个页面的框架，并且准备好了一个又一个的坑来给它的子模板（继承base.html的模板）来填，这些坑就是你看到的这些```block```。这样的好处就是代码复用，我们不用给相似的页面写重复的代码
 
 <h4>这只是皮毛</h4>
 <p>以上只是对Django的一个粗略的概述，Django还提供了其他一些有用的特性，比如缓存，消息订阅等。下一节开始，将从简到难讲解Django到方方面面</p>
