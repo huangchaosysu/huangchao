@@ -8,7 +8,7 @@ sidebar:
 ---
 
 <h4>安装django</h4>
-<p>Django是一个开源的python web框架，它并没有包含在python的默认安装环境中。要使用Django，必须先安装。因为Django是依赖python的，因此必须先安装python。关于python的安装可参考<a href="/article_2_2/">python教程</a>，这里就不重复</p>
+<p>Django是一个开源的python web框架，它并没有包含在python的默认安装环境中。要使用Django，必须先安装。因为Django是依赖python的，因此必须先安装python。关于python的安装可参考<a href="/python/install/">python教程</a>，这里就不重复</p>
 <h4>设置数据库</h4>
 <p>Django支持多种数据库，包括mysql，postgresql，oracle， sqlite等。本教程中使用mysql进行讲解。安装mysql的过程请参考您对应的操作系统的具体的<a href="https://dev.mysql.com/doc/refman/5.7/en/installing.html">安装过程</a>。这里就不再多说。</p>
 <p>要用Django操作mysql，则需要给python安装mysql的驱动，我们推荐使用mysqlclient，其安装方式为<code>pip3 install mysqlclient</code>, 如果你使用python2.x，那么只需要把<code>pip3</code>替换成<code>pip</code>就可以了。在本教程中，我们使用python3.4进行讲解</p> 
