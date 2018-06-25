@@ -169,17 +169,6 @@ def year_archive(request, year):
 
 关于Django的模板，最核心的是Django支持模板的继承。就像面向对象编程中的类继承一样，在Django中可以使用 *extends* 这个关键字来实现模板的继承。其逻辑是，先载入base.html这个模板，然后用当前模板的内容来填充base.html中定义的众多block。下面是一个示例：
 
-```
-{% load static %}
-<html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <img src="{% static "images/sitelogo.png" %}" alt="Logo" />
-    {% block content %}{% endblock %}
-</body>
-</html>
-```
+![](/assets/images/django/2.png)
 
 base.html这个模板定义了整个页面的框架，并且准备好了一个又一个的坑来给它的子模板（继承base.html的模板）来填，这些坑就是你看到的这些```block```。这样的好处就是代码复用，我们不用给相似的页面写重复的代码
