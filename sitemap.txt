@@ -105,3 +105,7 @@ http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-str-repr/
 http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-init/
 http://opentutorial.info/linux/sed/
 http://opentutorial.info/linux/grep/
+http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-garbage-collect/
+http://opentutorial.info/django/overview/
+http://opentutorial.info/django/install/
+http://opentutorial.info/django/firstapp1/

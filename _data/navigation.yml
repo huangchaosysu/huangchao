@@ -8,6 +8,8 @@ main:
     url: /git/
   - title: "Python入门"
     url: /python/introduction/
+  - title: "Django入门"
+    url: /django/overview/
   - title: "Radio"
     url: http://radio.opentutorial.info
   - title: "ABOUT"
@@ -255,3 +257,15 @@ python:
 
   - title: "virtualenv"
     url: "/python/virtualenv/"
+
+  django:
+  - title: "Django入门"
+    children:
+      - title: "概览"
+        url: /django/overview/
+      - title: "安装django"
+        url : /django/install/
+  - title: "第一个Django APP"
+    children:
+      - title: "PART-1"
+        url: /django/firstapp1/
