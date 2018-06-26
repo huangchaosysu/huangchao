@@ -283,3 +283,7 @@ django:
         url: /django/firstapp7/
       - title: "小结"
         url: /django/firstapp8/
+  - title: "Django By Example翻译"
+    children:
+      - title: "第一章"
+        url: /django/example1/
