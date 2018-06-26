@@ -535,7 +535,7 @@ Class Post(models.Model):
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span></span><span>{</span><span>%</span> block title <span>%</span><span>}</span><span>{</span><span>%</span> endblock <span>%</span><span>}</span><span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span>
-  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">link</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{% static "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">css</span>/<span class="hljs-attr">blog.css</span>"</span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag">%}"</span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">rel</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"stylesheet"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">link</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"<span>{</span><span>%</span> <span>static</span> "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">css</span>/<span class="hljs-attr">blog.css</span>"</span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag"><span>%</span><span>}</span>"</span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">rel</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"stylesheet"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">id</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"content"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
@@ -548,16 +548,16 @@ Class Post(models.Model):
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code></pre></div>
-<p><code></span>{</span><span>%</span> load staticfiles <span>%</span><span>}</span></code>告诉Django去加载<em>django.contrib.staticfiles</em>应用提供的<em>staticfiles</em> 模板标签（temaplate tags）。通过加载它，你可以在这个模板（template）中使用<code>{% static %}</code>模板过滤器（template filter）。通过使用这个模板过滤器（template filter），你可以包含一些静态文件比如说<em>blog.css</em>文件，你可以在本书的范例代码例子中找到该文件，在blog应用的<em>static/</em>目录中<strong>（译者注：给大家个地址去拷贝 <a href="https://github.com/levelksk/django-by-example-book" class="uri">https://github.com/levelksk/django-by-example-book</a> ）</strong>拷贝这个目录到你的项目下的相同路径来使用这些静态文件。</p>
-<p>你可以看到有两个<code>{% block %}</code>标签（tags）。这些是用来告诉Django我们想在这个区域中定义一个区块（block）。继承这个模板（template）的其他模板（templates）可以使用自定义的内容来填充区块（block）。我们定义了一个区块（block）叫做<em>title</em>，另一个区块（block）叫做<em>content</em>。</p>
+<p><code></span>{</span><span>%</span> load staticfiles <span>%</span><span>}</span></code>告诉Django去加载<em>django.contrib.staticfiles</em>应用提供的<em>staticfiles</em> 模板标签（temaplate tags）。通过加载它，你可以在这个模板（template）中使用<code><span>{</span><span>%</span> <span>static</span> <span>%</span><span>}</span></code>模板过滤器（template filter）。通过使用这个模板过滤器（template filter），你可以包含一些静态文件比如说<em>blog.css</em>文件，你可以在本书的范例代码例子中找到该文件，在blog应用的<code>static/</code>目录中<strong>（译者注：给大家个地址去拷贝 <a href="https://github.com/levelksk/django-by-example-book" class="uri">https://github.com/levelksk/django-by-example-book</a> ）</strong>拷贝这个目录到你的项目下的相同路径来使用这些静态文件。</p>
+<p>你可以看到有两个<code><span>{</span><span>%</span> block <span>%</span><span>}</span></code>标签（tags）。这些是用来告诉Django我们想在这个区域中定义一个区块（block）。继承这个模板（template）的其他模板（templates）可以使用自定义的内容来填充区块（block）。我们定义了一个区块（block）叫做<em>title</em>，另一个区块（block）叫做<em>content</em>。</p>
 <p>让我们编辑<em>post/list.html</em>文件使它如下所示：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% extends "blog/base.html" %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> extends "blog/base.html" <span>%</span><span>}</span>
 
-{% block title %}My Blog{% endblock %}
+<span>{</span><span>%</span> block title <span>%</span><span>}</span>My Blog<span>{</span><span>%</span> endblock <span>%</span><span>}</span>
 
-{% block content %}
+<span>{</span><span>%</span> block content <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>My Blog<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
-  {% for post in posts %}
+  <span>{</span><span>%</span> for post in posts <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>
       <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{{ post.get_absolute_url }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
         {{ post.title }}
@@ -567,23 +567,23 @@ Class Post(models.Model):
       Published {{ post.publish }} by {{ post.author }}
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
     {{ post.body|truncatewords:30|linebreaks }}
-  {% endfor %}
-{% endblock %}</code></pre></div>
-<p>通过<code>{% extends %}</code>模板标签（template tag），我们告诉Django需要继承<em>blog/base.html</em> 模板（template）。然后我们在<em>title</em>和<em>content</em>区块（blocks）中填充内容。我们通过循环迭代帖子来展示它们的标题，日期，作者和内容，在标题中还集成了帖子的标准URL链接。在帖子的内容中，我们应用了两个模板过滤器（template filters）： <em>truncatewords</em>用来缩短内容限制在一定的字数内，<em>linebreaks</em>用来转换内容中的换行符为HTML的换行符。只要你喜欢你可以连接许多模板标签（tempalte filters），每一个都会应用到上个输出生成的结果上。</p>
+  <span>{</span><span>%</span> endfor <span>%</span><span>}</span>
+<span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
+<p>通过<code><span>{</span><span>%</span> extends <span>%</span><span>}</span></code>模板标签（template tag），我们告诉Django需要继承<em>blog/base.html</em> 模板（template）。然后我们在<em>title</em>和<em>content</em>区块（blocks）中填充内容。我们通过循环迭代帖子来展示它们的标题，日期，作者和内容，在标题中还集成了帖子的标准URL链接。在帖子的内容中，我们应用了两个模板过滤器（template filters）： <em>truncatewords</em>用来缩短内容限制在一定的字数内，<em>linebreaks</em>用来转换内容中的换行符为HTML的换行符。只要你喜欢你可以连接许多模板标签（tempalte filters），每一个都会应用到上个输出生成的结果上。</p>
 <p>打开终端执行命令<code>python manage.py runserver</code>来启动开发服务器。在浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 你会看到运行结果。注意，你需要添加一些发布状态的帖子才能在这儿看到它们。你会看到如下图所示：<br>
 <iframe id="iframe_0.5919300372059573" src="data:text/html;charset=utf8,%3Cstyle%3Ebody%7Bmargin:0;padding:0%7D%3C/style%3E%3Cimg%20id=%22img%22%20src=%22http://upload-images.jianshu.io/upload_images/3966530-a8f162f31d72f0dc.png?imageMogr2/auto-orient/strip%257CimageView2/2/w/1240&amp;_=6152893%22%20style=%22border:none;max-width:848px%22%3E%3Cscript%3Ewindow.onload%20=%20function%20()%20%7Bvar%20img%20=%20document.getElementById('img');%20window.parent.postMessage(%7BiframeId:'iframe_0.5919300372059573',width:img.width,height:img.height%7D,%20'http://www.cnblogs.com');%7D%3C/script%3E" style="border: none; width: 626px; height: 297px;" frameborder="0" scrolling="no"></iframe></p>
 <p>这之后，让我们来编辑<em>post/detail.html</em>文件使它如下所示：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% extends "blog/base.html" %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> extends "blog/base.html" <span>%</span><span>}</span>
 
-{% block title %}{{ post.title }}{% endblock %}
+<span>{</span><span>%</span> block title <span>%</span><span>}</span>{{ post.title }}<span>{</span><span>%</span> endblock <span>%</span><span>}</span>
 
-{% block content %}
+<span>{</span><span>%</span> block content <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>{{ post.title }}<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"date"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     Published {{ post.publish }} by {{ post.author }}
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
   {{ post.body|linebreaks }}
-{% endblock %}</code></pre></div>
+<span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
 <p>现在，你可以在浏览器中点击其中一篇帖子的标题来看帖子的详细视图（view）。你会看到类似以下页面：<br>
 <iframe id="iframe_0.20138048564446032" src="data:text/html;charset=utf8,%3Cstyle%3Ebody%7Bmargin:0;padding:0%7D%3C/style%3E%3Cimg%20id=%22img%22%20src=%22http://upload-images.jianshu.io/upload_images/3966530-6c9f869e3aaad43d.png?imageMogr2/auto-orient/strip%257CimageView2/2/w/1240&amp;_=6152893%22%20style=%22border:none;max-width:848px%22%3E%3Cscript%3Ewindow.onload%20=%20function%20()%20%7Bvar%20img%20=%20document.getElementById('img');%20window.parent.postMessage(%7BiframeId:'iframe_0.20138048564446032',width:img.width,height:img.height%7D,%20'http://www.cnblogs.com');%7D%3C/script%3E" style="border: none; width: 626px; height: 142px;" frameborder="0" scrolling="no"></iframe></p>
 
@@ -620,22 +620,22 @@ Class Post(models.Model):
 <p>现在，我们必须创建一个模板（template）来展示分页处理，它可以被任意的模板（template）包含来使用分页。在blog应用的<em>templates</em>文件夹下创建一个新文件命名为<em>pagination.html</em>。在该文件中添加如下HTML代码：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"pagination"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">span</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"step-links"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-    {% if page.has_previous %}
+    <span>{</span><span>%</span> if page.has_previous <span>%</span><span>}</span>
       <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page={{ page.previous_page_number }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Previous<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
-    {% endif %}
+    <span>{</span><span>%</span> endif <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">span</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"current"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
       Page {{ page.number }} of {{ page.paginator.num_pages }}.
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
-      {% if page.has_next %}
+      <span>{</span><span>%</span> if page.has_next <span>%</span><span>}</span>
         <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page={{ page.next_page_number }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Next<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
-      {% endif %}
+      <span>{</span><span>%</span> endif <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>    </code></pre></div>
-<p>为了渲染上一页与下一页的链接并且展示当前页面和所有页面的结果，这个分页模板（template）期望一个<em>Page</em>对象。让我们回到<em>blog/post/list.html</em>模板（tempalte）中将<em>pagination.html</em>模板（template）包含在<code>{% content %}</code>区块（block）中，如下所示：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% block content %}
+<p>为了渲染上一页与下一页的链接并且展示当前页面和所有页面的结果，这个分页模板（template）期望一个<em>Page</em>对象。让我们回到<em>blog/post/list.html</em>模板（tempalte）中将<em>pagination.html</em>模板（template）包含在<code><span>{</span><span>%</span> content <span>%</span><span>}</span></code>区块（block）中，如下所示：</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> block content <span>%</span><span>}</span>
   ...
-  {% include "pagination.html" with page=posts %}
-{% endblock %}</code></pre></div>
+  <span>{</span><span>%</span> include "pagination.html" with page=posts <span>%</span><span>}</span>
+<span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
 <p>我们传递给模板（template）的<em>Page</em>对象叫做<em>posts</em>，我们将分页模板（tempalte）包含在帖子列模板（template）中指定参数来对它进行正确的渲染。这种方法你可以反复使用，用你的分页模板（template）对不同的模型（models）视图（views）进行分页处理。</p>
 <p>现在，在你的浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a>。 你会看到帖子列的底部已经有分页处理：<br>
 <iframe id="iframe_0.6678382213709215" src="data:text/html;charset=utf8,%3Cstyle%3Ebody%7Bmargin:0;padding:0%7D%3C/style%3E%3Cimg%20id=%22img%22%20src=%22http://upload-images.jianshu.io/upload_images/3966530-6fbd1a4b2e409533.png?imageMogr2/auto-orient/strip%257CimageView2/2/w/1240&amp;_=6152893%22%20style=%22border:none;max-width:848px%22%3E%3Cscript%3Ewindow.onload%20=%20function%20()%20%7Bvar%20img%20=%20document.getElementById('img');%20window.parent.postMessage(%7BiframeId:'iframe_0.6678382213709215',width:img.width,height:img.height%7D,%20'http://www.cnblogs.com');%7D%3C/script%3E" style="border: none; width: 622px; height: 332px;" frameborder="0" scrolling="no"></iframe></p>
@@ -668,7 +668,7 @@ Class Post(models.Model):
         name<span class="op">=</span><span class="st"><span class="hljs-string">'post_detail'</span></span>),
 ]</code></pre></div>
 <p>为了保持分页处理能工作，我们必须将正确的页面对象传递给模板（tempalte）。Django的<em>ListView</em>通过叫做<em>page_obj</em>的变量来传递被选择的页面，所以你必须编辑你的<em>post_list_html</em>模板（template）去包含使用了正确的变量的分页处理，如下所示：</p>
-<pre><code class="hljs django"><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> "pagination.html" with page=page_obj %}</span><span class="xml"></span></code></pre>
+<pre><code class="hljs django"><span class="xml"></span><span class="hljs-template-tag"><span>{</span><span>%</span> <span class="hljs-name"><span class="hljs-name">include</span></span> "pagination.html" with page=page_obj <span>%</span><span>}</span></span><span class="xml"></span></code></pre>
 <p>在你的浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 然后检查每一样功能是否都和之前的<em>post_list</em>视图（view）一样工作。这是一个简单的，通过使用Django提供的通用类的基于类视图（view）的例子。你将在<em>第十章，创建一个在线学习平台</em>以及相关的章节中学到更多的基于类的视图（views）。</p>
 
 ### 总结
