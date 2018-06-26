@@ -11,19 +11,8 @@ toc: true
 <p>本章节将介绍Django是如何处理表单数据的</p>
 <p>修改<code>polls/templates/polls/detail.htm</code>，先给detail页面添加一个表单</p>
 
-<pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">question.question_text</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+![](/assets/images/django/12)
 
-<span class="cp">{%</span> <span class="k">if</span> <span class="nv">error_message</span> <span class="cp">%}</span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">error_message</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
-
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">'polls:vote'</span> <span class="nv">question.id</span> <span class="cp">%}</span><span class="s">"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
-<span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">for</span> <span class="nv">choice</span> <span class="k">in</span> <span class="nv">question.choice_set.all</span> <span class="cp">%}</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"radio"</span> <span class="na">name</span><span class="o">=</span><span class="s">"choice"</span> <span class="na">id</span><span class="o">=</span><span class="s">"choice</span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter</span> <span class="cp">}}</span><span class="s">"</span> <span class="na">value</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">choice.id</span> <span class="cp">}}</span><span class="s">"</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"choice</span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">choice.choice_text</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
-<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Vote"</span> <span class="p">/&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</pre>
 <p>现在来讲解一下上面的这段代码</p>
 
 * 上面的代码给每一个选项前面都添加了一个单选的radio按钮，每个radio关联的值为其所代表的choice的ID，每个video按钮关联的文字描述为choice的文本内容。

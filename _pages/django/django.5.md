@@ -21,7 +21,8 @@ toc: true
 
 ### 编写View
 <em>polls/views.py</em>
-<pre>
+
+```
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
 
@@ -31,11 +32,12 @@ def results(request, question_id):
 
 def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
-</pre>
+```
 
 <p>接下来给每个view绑定一个url</p>
 <em>mysite/urls.py</em>
-<pre>
+
+```
 from django.conf.urls import url, include
 from django.contrib import admin
 
@@ -43,10 +45,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include("polls.urls"))
 ]
-</pre>
+```
 
 <em>polls/urls.py</em>
-<pre>
+```
 from django.conf.urls import url
 
 from . import views
@@ -61,12 +63,15 @@ urlpatterns = [
     # ex: /polls/5/vote/
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
 ]
-</pre>
+```
+
 <p>打开浏览器，访问<code>"/polls/34/"</code>，调用detail，会显示我们从url传入的任意id以及其提示信息(You're looking at question 34), 访问<code>"/polls/34/results/"</code>， 调用results, 会显示我们传入的任意id以及提示信息(You're looking at the results of question 34), 同理调用<code>"/polls/34/vote/"</code>的结果就很明显了</p>
 <p>每当Django收到一个请求(假设请求到url为'/polls/34/'), Django会载入mysite.settings中的ROOT_URLCONF(本例中为mysite.urls), 在mysite.urls中寻找urlpatterns这个变量并遍历这个数组的内容并进行url匹配. 遍历到<code>'^polls/'</code>发现了一个匹配，django会把匹配到的"polls/"部分截断，剩下的"34/"与"polls.urls"中的urlpatterns进行匹配, 直到找到"'^(?P<question_id>[0-9]+)/"这个匹配项, 然后调用detail. 最后实际对view的调用为:</p>
-<pre>
+
+```
 detail(request=<HttpRequest object>, question_id='34')
-</pre>
+```
+
 <p>question_id这个参数来自于(?P<question_id>[0-9]+). 使用括号表示抓取参数，会把括号内部的正则表达式匹配的内容作为参数传递到view，?P<question_id>表示一个参数名为question_id的关键字参数，如果是非关键字参数，则把?P<question_id>去掉即可。在此强调一下，Django的url不需要在末尾加.html等后缀，也不提倡.</p>
 
 ### 完善View
@@ -101,7 +106,7 @@ def index(request):
 
 <p>接下来，把index这个view修改为使用index.html这个模板</p>
 
-<pre>
+```
 from django.http import HttpResponse
 from django.template import loader
 
@@ -117,7 +122,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 # 其他保持不变
-</pre>
+```
 
 <p>现在，重启开发服务器，再访问<code>http://localhost:8000/polls/</code>, 现在的index就是调用polls/index.html这个模板了</p>
 
@@ -141,7 +146,7 @@ def index(request):
 ### 模板系统
 <p>编辑polls/views.py, 修改detail这个view</p>
 
-<pre>
+```
 from .models import Question
 # ...
 def detail(request, question_id):
@@ -150,7 +155,7 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         pass
     return render(request, 'polls/detail.html', {'question': question})
-</pre>
+```
 
 <p>上面的代码把detail也修改成了使用模板的方式。创建polls/templates/polls/detail.html, 填入以下代码</p>
 
@@ -174,7 +179,7 @@ def detail(request, question_id):
 <p>本例中，我们只有polls这一个app，但是在实际的项目中，一般都会有多个app。如果每个app中都有一个叫做detail的url该怎么办呢？Django应该选择哪个呢？为了解决这个问题，django提供了url的命名空间支持。</p>
 <p>修改polls/urls.py</p>
 
-<pre>
+```
 from django.conf.urls import url
 
 from . import views
@@ -186,7 +191,7 @@ urlpatterns = [
     url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
 ]
-</pre>
+```
 <p>注意到，我们设置了app_name这个属性，它的作用是告诉Django，此文件中的urlconf从属于命名空间polls. 那么怎么使用呢？</p>
 <p>修改index.html, 把</p>
 
@@ -198,7 +203,8 @@ urlpatterns = [
 就可以了，命名空间的使用方式为\{\% url 'namespace:name' \%\}
 <p>如果你已经掌握了本章节的内容，那么赶紧进入下一章节的学习吧</p>
 
-注意：django2.0已经出了新的url的编写方法，像这样
+注意：django2.0已经出了新的url的编写方法，像这样  
+
 ```
 from django.urls import path
 
