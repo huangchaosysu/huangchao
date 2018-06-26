@@ -23,9 +23,9 @@ li a {
 ```
 编辑<code>polls/templates/polls/index.html</code>，在head标签内加入以下代码
 
-<pre><span></span><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span>
+<pre><span></span><span class="cp">{</span><span>%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%</span><span>}</span>
 
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{%</span> <span class="k">static</span> <span class="s1">'polls/style.css'</span> <span class="cp">%}</span><span class="s">"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{</span><span>%</span> <span class="k">static</span> <span class="s1">'polls/style.css'</span> <span class="cp">%</span><span>}</span><span class="s">"</span> <span class="p">/&gt;</span>
 </pre>
 
 static这个标签会自动生成静态文件的url，对于开发调试来说，到这里就已经可以正确的使用这些静态文件了
