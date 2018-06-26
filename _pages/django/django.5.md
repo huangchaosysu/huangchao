@@ -76,7 +76,7 @@ urlpatterns = [
 detail(request=<HttpRequest object>, question_id='34')
 ```
 
-question_id这个参数来自于(?P<question_id>[0-9]+). 使用括号表示抓取参数，会把括号内部的正则表达式匹配的内容作为参数传递到view，```?P<question_id>```表示一个参数名为question_id的关键字参数，如果是非关键字参数，则把```?P<question_id>```去掉即可。在此强调一下，Django的url不需要在末尾加.html等后缀，也不提倡. 注意，这里是1.x版本中的参数截取方法，2.x的见文章末尾
+question_id这个参数来自于(?P\<question_id\>[0-9]+). 使用括号表示抓取参数，会把括号内部的正则表达式匹配的内容作为参数传递到view，?P\<question_id\>表示一个参数名为question_id的关键字参数，如果是非关键字参数，则把?P\<question_id\>去掉即可。在此强调一下，Django的url不需要在末尾加.html等后缀，也不提倡. 注意，这里是1.x版本中的参数截取方法，2.x的见文章末尾
 
 ### 完善View
 
@@ -169,7 +169,7 @@ def detail(request, question_id):
 
 ![](/assets/images/django/7)
 
-我们来讲解一下detail页面是怎么产生的。首先在detail这个view里，我们依据question_id来查询出一个Question(except分支暂时忽略了question_id不存在的情况)，调用render把得到的question对象传递给模板detail.html。在模板里，通过点号'.'来获取对象的属性，就跟python代码里一样。例如```{{ question.question_text }}```是获取我们传入的question的question_text这个属性的值，for开头这句代码实际调用了question.choice_set.all()这个方法，而 for那条语句是表示循环，后面我们会有专门的章节来讲解django模板的tag
+我们来讲解一下detail页面是怎么产生的。首先在detail这个view里，我们依据question_id来查询出一个Question(except分支暂时忽略了question_id不存在的情况)，调用render把得到的question对象传递给模板detail.html。在模板里，通过点号'.'来获取对象的属性，就跟python代码里一样。例如\{\{ question.question_text \}\}是获取我们传入的question的question_text这个属性的值，for开头这句代码实际调用了question.choice_set.all()这个方法，而 for那条语句是表示循环，后面我们会有专门的章节来讲解django模板的tag
 
 ### 消除硬编码的URL
 
