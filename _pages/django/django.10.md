@@ -4,7 +4,7 @@ permalink: /django/example1/
 title: "Django By Example 第一章"
 sidebar:
   nav: "django"
-toc: true
+# toc: true
 ---
 
 本例出自由Antonio Melé编写的《Django By Example》
