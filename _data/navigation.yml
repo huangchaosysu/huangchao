@@ -281,4 +281,5 @@ django:
         url: /django/firstapp6/
       - title: "PART-7"
         url: /django/firstapp7/
-      
+      - title: "小结"
+        url: /django/firstapp8/

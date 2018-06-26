@@ -113,3 +113,6 @@ http://opentutorial.info/django/firstapp2/
 http://opentutorial.info/django/firstapp3/
 http://opentutorial.info/django/firstapp4/
 http://opentutorial.info/django/firstapp5/
+http://opentutorial.info/django/firstapp6/
+http://opentutorial.info/django/firstapp7/
+http://opentutorial.info/django/firstapp8/
