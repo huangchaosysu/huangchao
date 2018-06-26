@@ -55,7 +55,8 @@ mysite/
 * 在Django项目外面为polls这个app创建一个父目录，例如django-polls(在起名时最好查一下pypi以确定是否有同名的包，以防后面出现名字冲突)
 * 把polls这个目录移到django-polls目录下
 * 新建文件django-polls/README.rst并加入以下内容
-```
+
+<pre>
 =====
 Polls
 =====
@@ -68,7 +69,6 @@ Quick start
 1. Add "polls" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
-        ...
         'polls',
     ]
 
@@ -82,7 +82,7 @@ Quick start
    to create a poll (you'll need the Admin app enabled).
 
 5. Visit http://127.0.0.1:8000/polls/ to participate in the poll.
-```
+</pre>
 
 <p>从以上的内容可以看出该文件的内容为使用说明</p>
 
