@@ -287,3 +287,5 @@ django:
     children:
       - title: "第一章"
         url: /django/example1/
+      - title: "第二章"
+        url: /django/example2/
