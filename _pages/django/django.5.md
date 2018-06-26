@@ -97,18 +97,7 @@ def index(request):
 
 <p>有一点需要注意的事情: 在上面的例子中，我们的index.html是放在polls目录下的，为什么不直接把index.html放到templates目录下而是在templates目录下又建了一个polls目录呢?原因是这样的，假如一个Django项目有好多个app，每个app都有一个index.html文件，那么整个项目就有好多个index.html，Django搜索模板是根据INSTALLED_APP里面所列的app顺序搜索的，假设在第一个app的templates目录下找到了名为index.html的文件，那么Django就停止搜索了，然而，这个index.html可能并不是我们想要的，因此保险起见，最好再加一层以app的名字命名的目录。</p>
 
-<p>编辑<code>polls/templates/polls/index.html</code></p>
-<pre>
-{% if latest_question_list %}
-    <span><</span>ul<span>></span>
-    {% for question in latest_question_list %}
-        <span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span>
-    {% endfor %}
-    <span><</span><span>/</span>ul<span>></span>
-{% else %}
-    <span><</span>p<span>></span>No polls are available.<span><</span>/p<span>></span>
-{% endif %}
-</pre>
+![](/assets/images/django/6)
 
 <p>接下来，把index这个view修改为使用index.html这个模板</p>
 
@@ -164,19 +153,15 @@ def detail(request, question_id):
 </pre>
 
 <p>上面的代码把detail也修改成了使用模板的方式。创建polls/templates/polls/detail.html, 填入以下代码</p>
-<pre>
-<span><</span>h1<span>></span>{{ question.question_text }}<span><</span>/h1<span>></span>
-<span><</span>ul<span>></span>
-{% for choice in question.choice_set.all %}
-    <span><</span>li<span>></span>{{ choice.choice_text }}<span><</span>/li<span>></span>
-{% endfor %}
-<span><</span>/ul<span>></span>
-</pre>
-<p>我们来讲解一下detail页面是怎么产生的。首先在detail这个view里，我们依据question_id来查询出一个Question(except分支暂时忽略了question_id不存在的情况)，调用render把得到的question对象传递给模板detail.html。在模板里，通过点号'.'来获取对象的属性，就跟python代码里一样。例如<code>>{{ question.question_text }}</code>是获取我们传入的question的question_text这个属性的值，<code>{% for choice in question.choice_set.all %}</code>这句代码实际调用了question.choice_set.all()这个方法，而{% for %}是表示循环，后面我们会有专门的章节来讲解django模板的tag</p>
+
+![](/assets/images/django/7)
+<p>我们来讲解一下detail页面是怎么产生的。首先在detail这个view里，我们依据question_id来查询出一个Question(except分支暂时忽略了question_id不存在的情况)，调用render把得到的question对象传递给模板detail.html。在模板里，通过点号'.'来获取对象的属性，就跟python代码里一样。例如<code>>{{ question.question_text }}</code>是获取我们传入的question的question_text这个属性的值，<code>for</code>这句代码实际调用了question.choice_set.all()这个方法，而```{% for %}```是表示循环，后面我们会有专门的章节来讲解django模板的tag</p>
 
 ### 消除硬编码的URL
-<p>在index.html里，有个URL是这么写的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了<code>{% url %}</code>这个tag来解决这个问题(其实就是反向解析url)</p>
+<p>在index.html里，有个URL是这么写的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了 {% url %} 这个tag来解决这个问题(其实就是反向解析url)</p>
+
 <pre>现在我们来修改一下index.html, 把之前的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>修改为<code><span><</span>li<span>></span><span><</span>a href="{% url 'detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code></pre>
+
 <p>这种写法的工作原理是，Django在模板里发现{% url %}这个tag的时候会到polls.urls这个文件所定义的url里面寻找对应名字的url，本例中就是寻找名字为'detail'的url，也就是</p>
 <pre><code>url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail')</code></pre>
 <p>日后如果我们需要修改detail这个view对应的url，我们只需要在polls/urls.py这个文件里修改对应的url映射就可以了</p>
@@ -203,5 +188,25 @@ urlpatterns = [
 <pre><span><</span>li<span>></span><span><</span>a href="{% url 'detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></pre>
 <p>修改为</p>
 <pre><span><</span>li<span>></span><span><</span>a href="{% url 'polls:detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></pre>
+
 <p>就可以了，命名空间的使用方式为{% url 'namespace:name' %}</p>
 <p>如果你已经掌握了本章节的内容，那么赶紧进入下一章节的学习吧</p>
+
+注意：django已经出了新的url的编写方法，像这样
+```
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    # ex: /polls/
+    path('', views.index, name='index'),
+    # ex: /polls/5/
+    path('<int:question_id>/', views.detail, name='detail'),
+    # ex: /polls/5/results/
+    path('<int:question_id>/results/', views.results, name='results'),
+    # ex: /polls/5/vote/
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+
+```
