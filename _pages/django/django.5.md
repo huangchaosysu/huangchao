@@ -215,7 +215,7 @@ urlpatterns = [
 
 ![](/assets/images/django/11)
 
-就可以了，命名空间的使用方式为```\{% url 'namespace:name' %\}```
+就可以了，命名空间的使用方式为\{\% url 'namespace:name' \%\}
 
 如果你已经掌握了本章节的内容，那么赶紧进入下一章节的学习吧
 
