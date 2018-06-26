@@ -511,4 +511,3 @@ similar_posts <span class="op">=</span> similar_posts.annotate(same_tags<span cl
 <h2 id="总结">总结</h2>
 <p>在本章中，你学习了如何使用Django的表单和模型（model）表单。你创建了一个通过email分享你的站点内容的系统，还为你的博客创建了一个评论系统。通过集成一个可复用的应用，你为你的帖子增加了打标签的功能。同时，你还构建了一个复杂的查询集（QuerySets)用来返回类似的对象。</p>
 <p>在下一章中，你会学习到如何创建自定义的模板（temaplate）标签（tags）和过滤器（filters）。你还会为你的博客应用构建一个自定义的站点地图，集成一个高级的搜索引擎。</p>
-<p>本教程出自由Antonio Melé编写的《Django By Example》, 后由<a href="http://www.cnblogs.com/levelksk/">@夜夜月月</a>等童鞋辛劳翻译。请各位读者给他们的主页添点人气</p>
