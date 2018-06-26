@@ -109,3 +109,7 @@ http://opentutorial.info/python%E6%96%87%E7%AB%A0/python-garbage-collect/
 http://opentutorial.info/django/overview/
 http://opentutorial.info/django/install/
 http://opentutorial.info/django/firstapp1/
+http://opentutorial.info/django/firstapp2/
+http://opentutorial.info/django/firstapp3/
+http://opentutorial.info/django/firstapp4/
+http://opentutorial.info/django/firstapp5/
