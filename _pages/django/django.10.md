@@ -528,19 +528,19 @@ Class Post(models.Model):
             <span class="hljs-built_in">list</span>.html
             detail.html</code></pre>
 <p>以上就是我们的模板（templates）的文件目录结构。<em>base.html</em>文件将会包含站点主要的HTML结构以及分割内容区域和一个导航栏。<em>list.html</em>和<em>detail.html</em>文件会继承<em>base.html</em>文件来渲染各自的blog帖子列和详情视图（view）。</p>
-<p>Django有一个强大的模板（templates）语言允许你指定数据的如何进行展示。它基于模板标签（templates tags）， 例如 <code>{% tag %}</code>, <code>{{ variable }}</code>以及模板过滤器（templates filters），可以对变量进行过滤，例如 <code>{{ variable|filter }}</code>。你可以通过访问 <a href="https://docs.djangoproject.com/en/1.8/" class="uri">https://docs.djangoproject.com/en/1.8/</a> ref/templates/builtins/ 找到所有的内置模板标签（templates tags）和过滤器（filters）。</p>
+<p>Django有一个强大的模板（templates）语言允许你指定数据的如何进行展示。它基于模板标签（templates tags）， 例如 <code><span>{</span><span>%</span> tag <span>%</span><span>}</span></code>, <code></span>{</span><span>{</span> variable <span>}</span><span>}</span></code>以及模板过滤器（templates filters），可以对变量进行过滤，例如 <code>{{ variable|filter }}</code>。你可以通过访问 <a href="https://docs.djangoproject.com/en/1.8/" class="uri">https://docs.djangoproject.com/en/1.8/</a> ref/templates/builtins/ 找到所有的内置模板标签（templates tags）和过滤器（filters）。</p>
 <p>让我们来编辑<em>base.html</em>文件并添加如下代码：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% load staticfiles %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> load staticfiles <span>%</span><span>}</span>
 <span class="dt"><span class="hljs-meta">&lt;!DOCTYPE </span></span><span class="hljs-meta">html</span><span class="dt"><span class="hljs-meta">&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span>
-  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span></span>{% block title %}{% endblock %}<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span>
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span></span><span>{</span><span>%</span> block title <span>%</span><span>}</span><span>{</span><span>%</span> endblock <span>%</span><span>}</span><span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">link</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{% static "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">css</span>/<span class="hljs-attr">blog.css</span>"</span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag">%}"</span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">rel</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"stylesheet"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">id</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"content"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-    {% block content %}
-    {% endblock %}
+    <span>{</span><span>%</span> block content <span>%</span><span>}</span>
+    <span>{</span><span>%</span> endblock <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">id</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"sidebar"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>My blog<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
@@ -548,7 +548,7 @@ Class Post(models.Model):
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code></pre></div>
-<p><code>{% load staticfiles %}</code>告诉Django去加载<em>django.contrib.staticfiles</em>应用提供的<em>staticfiles</em> 模板标签（temaplate tags）。通过加载它，你可以在这个模板（template）中使用<code>{% static %}</code>模板过滤器（template filter）。通过使用这个模板过滤器（template filter），你可以包含一些静态文件比如说<em>blog.css</em>文件，你可以在本书的范例代码例子中找到该文件，在blog应用的<em>static/</em>目录中<strong>（译者注：给大家个地址去拷贝 <a href="https://github.com/levelksk/django-by-example-book" class="uri">https://github.com/levelksk/django-by-example-book</a> ）</strong>拷贝这个目录到你的项目下的相同路径来使用这些静态文件。</p>
+<p><code></span>{</span><span>%</span> load staticfiles <span>%</span><span>}</span></code>告诉Django去加载<em>django.contrib.staticfiles</em>应用提供的<em>staticfiles</em> 模板标签（temaplate tags）。通过加载它，你可以在这个模板（template）中使用<code>{% static %}</code>模板过滤器（template filter）。通过使用这个模板过滤器（template filter），你可以包含一些静态文件比如说<em>blog.css</em>文件，你可以在本书的范例代码例子中找到该文件，在blog应用的<em>static/</em>目录中<strong>（译者注：给大家个地址去拷贝 <a href="https://github.com/levelksk/django-by-example-book" class="uri">https://github.com/levelksk/django-by-example-book</a> ）</strong>拷贝这个目录到你的项目下的相同路径来使用这些静态文件。</p>
 <p>你可以看到有两个<code>{% block %}</code>标签（tags）。这些是用来告诉Django我们想在这个区域中定义一个区块（block）。继承这个模板（template）的其他模板（templates）可以使用自定义的内容来填充区块（block）。我们定义了一个区块（block）叫做<em>title</em>，另一个区块（block）叫做<em>content</em>。</p>
 <p>让我们编辑<em>post/list.html</em>文件使它如下所示：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% extends "blog/base.html" %}
