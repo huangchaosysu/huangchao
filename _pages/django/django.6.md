@@ -51,7 +51,7 @@ def vote(request, question_id):
 <p>代码讲解:</p>
 
 * request.POST是一个类似于python字典的对象，这个对象里面存储了post请求传过来的所有参数(仅限post参数)的值。可以像操作字典一样操作该对象。本例中，<code>request.POST['choice']</code>就是获取表单里面choice这个字段的值，同理，request.GET存储了所有get请求传递过来的参数。
-* <如果choice这个key在request.POST中不存在，那么代码会抛出一个KeyError
+* 如果choice这个key在request.POST中不存在，那么代码会抛出一个KeyError
 * HttpResponseRedirect的作用是返回一个redirect，将浏览器重定向到另外一个地址。本例中我们把票数+1以后就返回了一个重定向，重定向的目标地址为result页面
 * reverse方法的作用跟我们在模板里使用\{% url %\}基本相同，它返回一个url地址
 
