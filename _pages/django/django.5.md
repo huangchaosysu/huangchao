@@ -173,7 +173,7 @@ def detail(request, question_id):
 
 ### 消除硬编码的URL
 
-在index.html里，有个URL是这么写的```<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>```，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了 **url** 这个tag来解决这个问题(其实就是反向解析url)
+在index.html里，有个URL是这么写的```<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>```，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了 <span>{</span><span>%</span>url <span>%</span><span>}</span> 这个tag来解决这个问题(其实就是反向解析url)
 
 现在我们来修改一下index.html, 把之前的  
 ![](/assets/images/django/8)
@@ -215,7 +215,7 @@ urlpatterns = [
 
 ![](/assets/images/django/11)
 
-就可以了，命名空间的使用方式为\{\% url 'namespace:name' \%\}
+就可以了，命名空间的使用方式为<span>{</span><span>%</span> url 'namespace:name' <span>%</span><span>}</span>
 
 如果你已经掌握了本章节的内容，那么赶紧进入下一章节的学习吧
 
