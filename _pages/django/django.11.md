@@ -144,47 +144,47 @@ url(<span class="vs"><span class="hljs-string">r'^(?P&lt;post_id&gt;\d+)/share/$
 ]</code></pre></div>
 <h2 id="在模板templates中渲染表单">在模板（templates）中渲染表单</h2>
 <p>在通过创建表单，编写视图（view）以及添加URL模式后，我们就只剩下为这个视图（view）添加模板（tempalte）了。在<code>blog/templates/blog/post/</code>目录下创建一个新的文件并命名为<em>share.html</em>。在该文件中添加如下代码：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% extends "blog/base.html" %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> <span>extends</span> "blog/base.html" <span>%</span><span>}</span>
 
-{% block title %}Share a post{% endblock %}
+<span>{</span><span>%</span> block title <span>%</span><span>}</span>Share a post<span>{</span><span>%</span> endblock <span>%</span><span>}</span>
 
-{% block content %}
-  {% if sent %}
+<span>{</span><span>%</span> block content <span>%</span><span>}</span>
+  <span>{</span><span>%</span> if sent <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>E-mail successfully sent<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>
-      "{{ post.title }}" was successfully sent to {{ cd.to }}.
+      "<span>{</span><span>{</span> post.title <span>}</span><span>}</span>" was successfully sent to <span>{</span><span>{</span> cd.to <span>}</span><span>}</span>.
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-  {% else %}
-    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>Share "{{ post.title }}" by e-mail<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  <span>{</span><span>%</span> else <span>%</span><span>}</span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>Share "<span>{</span><span>{</span> post.title <span>}</span><span>}</span>" by e-mail<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">action</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"."</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">method</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"post"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-      {{ form.as_p }}
-      {% csrf_token %}
+      <span>{</span><span>{</span> form.as_p <span>}</span><span>}</span>
+      <span>{</span><span>%</span> csrf_token <span>%</span><span>}</span>
       <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"submit"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"Send e-mail"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span>
-  {% endif %}
-{% endblock %}</code></pre></div>
+  <span>{</span><span>%</span> endif <span>%</span><span>}</span>
+<span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
 <p>这个模板（tempalte）专门用来显示一个表单或一条成功提示信息。如你所见，我们创建的HTML表单元素里面表明了它必须通过POST方法提交：</p>
 <pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"."</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span></span></code></pre>
 <p>接下来我们要包含真实的表单实例。我们告诉Django用<code>as_p</code>方法利用HTML的<code>&lt;p&gt;</code>元素来渲染它的字段。我们也可以使用<code>as_ul</code>利用无序列表来渲染表单或者使用<code>as_table</code>利用HTML表格来渲染。如果我们想要逐一渲染每一个字段，我们可以迭代字段。例如下方的例子：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% for field in form %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> for field in form <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span>
-    {{ field.errors }}
-    {{ field.label_tag }} {{ field }}
+    <span>{</span><span>{</span> field.errors <span>}</span><span>}</span>
+    <span>{</span><span>{</span> field.label_tag <span>}</span><span>}</span> <span>{</span><span>{</span> field <span>}</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-{% endfor %}</code></pre></div>
-<p><code>{% csrf_token %}</code>模板（tempalte）标签（tag）引进了可以避开<em>Cross-Site request forgery(CSRF)</em>攻击的自动生成的令牌，这是一个隐藏的字段。这些攻击由恶意的站点或者可以在你的站点中为用户执行恶意行为的程序组成。通过访问 <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery%E4%BD%A0%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E4%BF%A1%E6%81%AF" class="uri">https://en.wikipedia.org/wiki/Cross-site_request_forgery你可以找到更多的信息</a> 。</p>
+<span>{</span><span>%</span> endfor <span>%</span><span>}</span></code></pre></div>
+<p><code><span>{</span><span>%</span> csrf_token <span>%</span><span>}</span></code>模板（tempalte）标签（tag）引进了可以避开<em>Cross-Site request forgery(CSRF)</em>攻击的自动生成的令牌，这是一个隐藏的字段。这些攻击由恶意的站点或者可以在你的站点中为用户执行恶意行为的程序组成。通过访问 <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery%E4%BD%A0%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E4%BF%A1%E6%81%AF" class="uri">https://en.wikipedia.org/wiki/Cross-site_request_forgery你可以找到更多的信息</a> 。</p>
 <p>上述的标签（tag）生成的隐藏字段就像下面一样：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'hidden'</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">name</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'csrfmiddlewaretoken'</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'26JjKo2lcEtYkGoV9z4XmJIEHLXN5LDR'</span></span></span><span class="hljs-tag"> </span><span class="kw"><span class="hljs-tag">/&gt;</span></span></code></pre></div>
 <blockquote>
 <p>默认情况下，Django在所有的POST请求中都会检查CSRF标记（token）。请记住要在所有使用POST方法提交的表单中包含<em>csrf_token</em>标签。<strong>（译者注：当然你也可以关闭这个检查，注释掉app_list中的csrf应用即可，我就是这么做的，因为我懒）</strong></p>
 </blockquote>
-<p>编辑你的<em>blog/post/detail.html</em>模板（template），在<code>{{ post.body|linebreaks }}</code>变量后面添加如下的链接来分享帖子的URL：</p>
+<p>编辑你的<em>blog/post/detail.html</em>模板（template），在<code><span>{</span><span>{</span> post.body|linebreaks <span>}</span><span>}</span></code>变量后面添加如下的链接来分享帖子的URL：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>
-  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{% url "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">blog:post_share"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">post.id</span></span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag">%}"</span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"<span>{</span><span>%</span> url "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">blog:post_share"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">post.id</span></span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag"><span>%</span><span>}</span>"</span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     Share this post
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre></div>
-<p>请记住，我们通过使用Django提供的<code>{% url %}</code>模板（template）标签（tag）来动态的生成URL。我们以<em>blog</em>为命名空间，以<em>post_share</em>为URL，同时传递帖子ID作为参数来构建绝对的URL。</p>
+<p>请记住，我们通过使用Django提供的<code><span>{</span><span>%</span> url <span>%</span><span>}</span></code>模板（template）标签（tag）来动态的生成URL。我们以<em>blog</em>为命名空间，以<em>post_share</em>为URL，同时传递帖子ID作为参数来构建绝对的URL。</p>
 <p>现在，通过<code>python manage.py runserver</code>命令来启动开发服务器，在浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 。点击任意一个帖子标题查看详情页面。在帖子内容的下方，你会看到我们刚刚添加的链接，如下所示：<br>
 <img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-1.png" alt="django-2-1"></p>
 <p>点击<strong>Share this post</strong>,你会看到包含通过email分享帖子的表单的页面。看上去如下所示：<br>
@@ -308,41 +308,41 @@ admin.site.register(Comment, CommentAdmin)</code></pre></div>
 <li>显示一个表单给用户来添加新的评论</li>
 </ul>
 <p>首先，我们来添加评论的总数。打开<em>blog_detail.html</em>模板（template）在<em>content</em>区块中添加如下代码：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% with comments.count as total_comments %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> with comments.count as total_comments <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>
-    {{ total_comments }} comment{{ total_comments|pluralize }}
+    <span>{</span><span>{</span> total_comments <span>}</span><span>}</span> comment<span>{</span><span>{</span> total_comments|pluralize <span>}</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
-{% endwith %}</code></pre></div>
-<p>在模板（template）中我们使用Django ORM执行<code>comments.count()</code> 查询集（QuerySet）。注意，Django模板（template）语言中不使用圆括号来调用方法。<code>{% with %}</code> 标签（tag）允许我们分配一个值给新的变量，这个变量可以一直使用直到遇到<code>{% endwith %}</code>标签（tag）。</p>
+<span>{</span><span>%</span> endwith <span>%</span><span>}</span></code></pre></div>
+<p>在模板（template）中我们使用Django ORM执行<code>comments.count()</code> 查询集（QuerySet）。注意，Django模板（template）语言中不使用圆括号来调用方法。<code><span>{</span><span>%</span> with <span>%</span><span>}</span></code> 标签（tag）允许我们分配一个值给新的变量，这个变量可以一直使用直到遇到<code><span>{</span><span>%</span> endwith <span>%</span><span>}</span></code>标签（tag）。</p>
 <blockquote>
-<p><code>{% with %}</code>模板（template）标签（tag）是非常有用的，可以避免直接操作数据库或避免多次调用花费较多的方法。</p>
+<p><code><span>{</span><span>%</span> with <span>%</span><span>}</span></code>模板（template）标签（tag）是非常有用的，可以避免直接操作数据库或避免多次调用花费较多的方法。</p>
 </blockquote>
 <p>根据<em>total_comments</em>的值，我们使用<em>pluralize </em>模板（template）过滤器（filter）为单词<em>comment</em>显示复数后缀。模板（Template）过滤器（filters）获取到他们输入的变量值，返回计算后的值。我们将会在<em>第三章 扩展你的博客应用</em>中讨论更多的模板过滤器（tempalte filters）。</p>
 <p><em>pluralize</em>模板（template）过滤器（filter）在值不为1时，会在值的末尾显示一个"s"。之前的文本将会被渲染成类似：<em>0 comments</em>, <em>1 comment</em> 或者 <em>N comments</em>。Django内置大量的模板（template）标签（tags）和过滤器（filters）来帮助你以你想要的方式来显示信息。</p>
 <p>现在，让我们加入评论列表。在模板（template）中之前的代码后面加入以下内容：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% for comment in comments %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> for comment in comments <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"comment"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"info"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-      Comment {{ forloop.counter }} by {{ comment.name }}
-      {{ comment.created }}
+      Comment <span>{</span><span>{</span> forloop.counter <span>}</span><span>}</span> by <span>{</span><span>{</span> comment.name <span>}</span><span>}</span>
+      <span>{</span><span>{</span> comment.created <span>}</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-    {{ comment.body|linebreaks }}
+    <span>{</span><span>{</span> comment.body|linebreaks <span>}</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-{% empty %}
+<span>{</span><span>%</span> empty <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>There are no comments yet.<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-{% endfor %}</code></pre></div>
-<p>我们使用<code>{% for %}</code>模板（template）标签（tag）来循环所有的评论。如果<em>comments</em>列为空我们会显示一个默认的信息，告诉我们的用户这篇帖子还没有任何评论。我们使用 <code>{{ forloop.counter }}</code>变量来枚举所有的评论，在每次迭代中该变量都包含循环计数。之后我们显示发送评论的用户名，日期，和评论的内容。</p>
+<span>{</span><span>%</span> endfor <span>%</span><span>}</span></code></pre></div>
+<p>我们使用<code><span>{</span><span>%</span> for <span>%</span><span>}</span></code>模板（template）标签（tag）来循环所有的评论。如果<em>comments</em>列为空我们会显示一个默认的信息，告诉我们的用户这篇帖子还没有任何评论。我们使用 <code><span>{</span><span>{</span> forloop.counter <span>}</span><span>}</span></code>变量来枚举所有的评论，在每次迭代中该变量都包含循环计数。之后我们显示发送评论的用户名，日期，和评论的内容。</p>
 <p>最后，当表单提交成功后,你需要渲染表单或者显示一条成功的信息来代替之前的内容。在之前的代码后面添加如下内容：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% if new_comment %}
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> if new_comment <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Your comment has been added.<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
-{% else %}
+<span>{</span><span>%</span> else <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Add a new comment<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">action</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"."</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">method</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"post"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-    {{ comment_form.as_p }}
-    {% csrf_token %}
+    <span>{</span><span>{</span> comment_form.as_p <span>}</span><span>}</span>
+    <span>{</span><span>%</span> csrf_token <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"submit"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"Add comment"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span>
-{% endif %}</code></pre></div>
+<span>{</span><span>%</span> endif <span>%</span><span>}</span></code></pre></div>
 <p>这段代码非常简洁明了：如果<em>new_comment</em>对象存在，我们会展示一条成功信息因为成功创建了一条新评论。否则，我们用段落<code>&lt;p&gt;</code>元素渲染表单中每一个字段，并且包含<em>POST</em>请求需要的<em>CSRF</em>令牌。在浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 然后点击任意一篇帖子的标题查看它的详情页面。你会看到如下页面展示：</p>
 <p><img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-6.png" alt="django-2-6"></p>
 <p>使用该表单添加数条评论。这些评论会在你的帖子下面根据时间排序来展示，类似下图：<br>
@@ -393,7 +393,7 @@ admin.site.register(Comment, CommentAdmin)</code></pre></div>
 <p>转到 <a href="http://127.0.0.1:8000/admin/blog/post/" class="uri">http://127.0.0.1:8000/admin/blog/post/</a> 并点击一篇帖子进行编辑。你会看到帖子中包含了一个新的<strong>Tags</strong>字段如下所示，你可以非常容易的编辑它：<br>
 <img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-10.png" alt="django-2-10"></p>
 <p>现在，我们准备编辑我们的blog帖子来显示这些标签。打开<em>blog/post/list.html</em> 模板（template）在帖子标题下方添加如下HTML代码：</p>
-<pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tags"</span>&gt;</span>Tags: </span><span class="hljs-template-variable">{{ post.tags.all|<span class="hljs-name">join</span>:<span class="hljs-string">", "</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre>
+<pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tags"</span>&gt;</span>Tags: </span><span class="hljs-template-variable"><span>{</span><span>{</span> post.tags.all|<span class="hljs-name">join</span>:<span class="hljs-string">", "</span> <span>}</span><span>}</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre>
 <p><em>join</em>模板（template）过滤器（filter）的功能类似python字符串的join()方法，将给定的字符串连接起来。在浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 。 你会看到每一个帖子的标题下面的标签列表：</p>
 <p><img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-11.png" alt="django-2-11"></p>
 <p>现在，让我们来编辑我们的<em>post_list</em>视图（view）让用户可以列出打上了特定标签的所有帖子。打开blog应用下的<em>views.py</em>文件，从<em>django-taggit</em>中导入<em>Tag</em>模型（model），然后修改<em>post_list</em>视图（view）让它可以通过标签选择性的过滤，如下所示：</p>
@@ -444,22 +444,22 @@ admin.site.register(Comment, CommentAdmin)</code></pre></div>
     name<span class="op">=</span><span class="st"><span class="hljs-string">'post_list_by_tag'</span></span>),</code></pre></div>
 <p>如你所见，两个模式都指向了相同的视图（view），但是我们可以给它们不同的命名。第一个模式会调用<em>post_list</em>视图（view）并且不带上任何可选参数。然而第二个模式会调用这个视图（view）带上<em>tag_slug</em>参数。</p>
 <p>因为我们要使用<em>post_list</em>视图（view）,编辑<em>blog/post/list.html</em> 模板（template），使用<em>posts</em>对象修改pagination，如下所示：</p>
-<pre><code class="hljs django"><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> "pagination.html" with page=posts %}</span><span class="xml"></span></code></pre>
-<p>在<code>{% for %}</code>循环上方添加如下代码：</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">{% if tag %}
-  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Posts tagged with "{{ tag.name }}"<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
-{% endif %}</code></pre></div>
+<pre><code class="hljs django"><span class="xml"></span><span class="hljs-template-tag"><span>{</span><span>%</span> <span class="hljs-name"><span class="hljs-name">include</span></span> "pagination.html" with page=posts <span>%</span><span>}</span></span><span class="xml"></span></code></pre>
+<p>在<code><span>{</span><span>%</span> for <span>%</span><span>}</span></code>循环上方添加如下代码：</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> if tag <span>%</span><span>}</span>
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Posts tagged with "<span>{</span><span>{</span> tag.name <span>}</span><span>}</span>"<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
+<span>{</span><span>%</span> endif <span>%</span><span>}</span></code></pre></div>
 <p>如果用户正在访问blog，他会看到所有帖子列表。如果他指定一个标签来过滤所有的帖子，他就会看到以上的信息。现在，修改标签的显示方式，如下所示：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"tags"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
   Tags:
-  {% for tag in post.tags.all %}
-    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{% url "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">blog:post_list_by_tag"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">tag.slug</span></span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag">%}"</span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-      {{ tag.name }}
+  <span>{</span><span>%</span> for tag in post.tags.all <span>%</span><span>}</span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"<span>{</span><span>%</span> url "</span></span></span><span class="er"><span class="hljs-tag"><span class="hljs-string">blog:post_list_by_tag"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">tag.slug</span></span></span><span class="hljs-tag"> </span><span class="er"><span class="hljs-tag"><span>%</span><span>}</span>"</span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
+      <span>{</span><span>{</span> tag.name <span>}</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
-    {% if not forloop.last %}, {% endif %}
-  {% endfor %}
+    <span>{</span><span>%</span> if not forloop.last <span>%</span><span>}</span>, <span>{</span><span>%</span> endif <span>%</span><span>}</span>
+  <span>{</span><span>%</span> endfor <span>%</span><span>}</span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre></div>
-<p>现在，我们循环一个帖子的所有标签，通过某一标签来显示一个自定义的链接URL。我们通过<code>{% url "blog:post_list_by_tag" tag.slug %}</code>，用URL的名称以及标签 slug作为参数来构建URL。我们使用逗号分隔这些标签。</p>
+<p>现在，我们循环一个帖子的所有标签，通过某一标签来显示一个自定义的链接URL。我们通过<code><span>{</span><span>%</span> url "blog:post_list_by_tag" tag.slug <span>%</span><span>}</span></code>，用URL的名称以及标签 slug作为参数来构建URL。我们使用逗号分隔这些标签。</p>
 <p>在浏览器中打开 <a href="http://127.0.0.1:8000/blog/" class="uri">http://127.0.0.1:8000/blog/</a> 然后点击任意的标签链接，你会看到通过该标签过滤过的帖子列表，如下所示：</p>
 <p><img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-12.png" alt="django-2-12"></p>
 <h2 id="检索类似的帖子">检索类似的帖子</h2>
@@ -498,13 +498,13 @@ similar_posts <span class="op">=</span> similar_posts.annotate(same_tags<span cl
                 'similar_posts': similar_posts})</code></pre>
 <p>现在，编辑<em>blog/post/detail.html</em>模板（template）在帖子评论列表前添加如下代码：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Similar posts<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
-  {% for post in similar_posts %}
+  <span>{</span><span>%</span> for post in similar_posts <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>
-      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{{ post.get_absolute_url }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>{{ post.title }}<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"<span>{</span><span>{</span> post.get_absolute_url <span>}</span><span>}</span>"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span><span>{</span><span>{</span> post.title <span>}</span><span>}</span><span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-  {% empty %}
+  <span>{</span><span>%</span> empty <span>%</span><span>}</span>
     There are no similar posts yet.
-  {% endfor %}</code></pre></div>
+  <span>{</span><span>%</span> endfor <span>%</span><span>}</span></code></pre></div>
 <p>推荐你在你的帖子详情模板中添加标签列表，就像我们在帖子列表模板所做的一样。现在，你的帖子详情页面看上去如下所示：<br>
 <img src="http://ohqrvqrlb.bkt.clouddn.com/django-2-13.png" alt="django-2-13"></p>
 <p>你已经成功的为你的用户推荐了类似的帖子。<em>django-taggit</em>还内置了一个<code>similar_objects()</code> 管理器（manager）使你可以通过共享的标签返回所有对象。你可以通过访问 <a href="http://django-taggit.readthedocs.org/en/latest/api.html" class="uri">http://django-taggit.readthedocs.org/en/latest/api.html</a> 看到所有django-taggit管理器。</p>

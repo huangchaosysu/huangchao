@@ -528,7 +528,7 @@ Class Post(models.Model):
             <span class="hljs-built_in">list</span>.html
             detail.html</code></pre>
 <p>以上就是我们的模板（templates）的文件目录结构。<em>base.html</em>文件将会包含站点主要的HTML结构以及分割内容区域和一个导航栏。<em>list.html</em>和<em>detail.html</em>文件会继承<em>base.html</em>文件来渲染各自的blog帖子列和详情视图（view）。</p>
-<p>Django有一个强大的模板（templates）语言允许你指定数据的如何进行展示。它基于模板标签（templates tags）， 例如 <code><span>{</span><span>%</span> tag <span>%</span><span>}</span></code>, <code></span>{</span><span>{</span> variable <span>}</span><span>}</span></code>以及模板过滤器（templates filters），可以对变量进行过滤，例如 <code>{{ variable|filter }}</code>。你可以通过访问 <a href="https://docs.djangoproject.com/en/1.8/" class="uri">https://docs.djangoproject.com/en/1.8/</a> ref/templates/builtins/ 找到所有的内置模板标签（templates tags）和过滤器（filters）。</p>
+<p>Django有一个强大的模板（templates）语言允许你指定数据的如何进行展示。它基于模板标签（templates tags）， 例如 <code><span>{</span><span>%</span> tag <span>%</span><span>}</span></code>, <code></span>{</span><span>{</span> variable <span>}</span><span>}</span></code>以及模板过滤器（templates filters），可以对变量进行过滤，例如 <code><span>{</span><span>{</span> variable|filter <span>}</span><span>}</span></code>。你可以通过访问 <a href="https://docs.djangoproject.com/en/1.8/" class="uri">https://docs.djangoproject.com/en/1.8/</a> ref/templates/builtins/ 找到所有的内置模板标签（templates tags）和过滤器（filters）。</p>
 <p>让我们来编辑<em>base.html</em>文件并添加如下代码：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> load staticfiles <span>%</span><span>}</span>
 <span class="dt"><span class="hljs-meta">&lt;!DOCTYPE </span></span><span class="hljs-meta">html</span><span class="dt"><span class="hljs-meta">&gt;</span></span>
@@ -559,14 +559,14 @@ Class Post(models.Model):
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>My Blog<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
   <span>{</span><span>%</span> for post in posts <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>
-      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"{{ post.get_absolute_url }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-        {{ post.title }}
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"<span>{</span><span>{</span> post.get_absolute_url <span>}</span><span>}</span>"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
+        <span>{</span><span>{</span> post.title <span>}</span><span>}</span>
       <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"date"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-      Published {{ post.publish }} by {{ post.author }}
+      Published <span>{</span><span>{</span> post.publish <span>}</span><span>}</span> by <span>{</span><span>{</span> post.author <span>}</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-    {{ post.body|truncatewords:30|linebreaks }}
+    <span>{</span><span>{</span> post.body|truncatewords:30|linebreaks <span>}</span><span>}</span>
   <span>{</span><span>%</span> endfor <span>%</span><span>}</span>
 <span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
 <p>通过<code><span>{</span><span>%</span> extends <span>%</span><span>}</span></code>模板标签（template tag），我们告诉Django需要继承<em>blog/base.html</em> 模板（template）。然后我们在<em>title</em>和<em>content</em>区块（blocks）中填充内容。我们通过循环迭代帖子来展示它们的标题，日期，作者和内容，在标题中还集成了帖子的标准URL链接。在帖子的内容中，我们应用了两个模板过滤器（template filters）： <em>truncatewords</em>用来缩短内容限制在一定的字数内，<em>linebreaks</em>用来转换内容中的换行符为HTML的换行符。只要你喜欢你可以连接许多模板标签（tempalte filters），每一个都会应用到上个输出生成的结果上。</p>
@@ -575,14 +575,14 @@ Class Post(models.Model):
 <p>这之后，让我们来编辑<em>post/detail.html</em>文件使它如下所示：</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span>{</span><span>%</span> extends "blog/base.html" <span>%</span><span>}</span>
 
-<span>{</span><span>%</span> block title <span>%</span><span>}</span>{{ post.title }}<span>{</span><span>%</span> endblock <span>%</span><span>}</span>
+<span>{</span><span>%</span> block title <span>%</span><span>}</span><span>{</span><span>{</span> post.title <span>}</span><span>}</span><span>{</span><span>%</span> endblock <span>%</span><span>}</span>
 
 <span>{</span><span>%</span> block content <span>%</span><span>}</span>
-  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span>{{ post.title }}<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span><span>{</span><span>{</span> post.title <span>}</span><span>}</span><span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">p</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"date"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-    Published {{ post.publish }} by {{ post.author }}
+    Published <span>{</span><span>{</span> post.publish <span>}</span><span>}</span> by <span>{</span><span>{</span> post.author <span>}</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-  {{ post.body|linebreaks }}
+  <span>{</span><span>{</span> post.body|linebreaks <span>}</span><span>}</span>
 <span>{</span><span>%</span> endblock <span>%</span><span>}</span></code></pre></div>
 <p>现在，你可以在浏览器中点击其中一篇帖子的标题来看帖子的详细视图（view）。你会看到类似以下页面：<br>
 <iframe id="iframe_0.20138048564446032" src="data:text/html;charset=utf8,%3Cstyle%3Ebody%7Bmargin:0;padding:0%7D%3C/style%3E%3Cimg%20id=%22img%22%20src=%22http://upload-images.jianshu.io/upload_images/3966530-6c9f869e3aaad43d.png?imageMogr2/auto-orient/strip%257CimageView2/2/w/1240&amp;_=6152893%22%20style=%22border:none;max-width:848px%22%3E%3Cscript%3Ewindow.onload%20=%20function%20()%20%7Bvar%20img%20=%20document.getElementById('img');%20window.parent.postMessage(%7BiframeId:'iframe_0.20138048564446032',width:img.width,height:img.height%7D,%20'http://www.cnblogs.com');%7D%3C/script%3E" style="border: none; width: 626px; height: 142px;" frameborder="0" scrolling="no"></iframe></p>
@@ -621,13 +621,13 @@ Class Post(models.Model):
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml"><span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"pagination"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
   <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">span</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"step-links"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
     <span>{</span><span>%</span> if page.has_previous <span>%</span><span>}</span>
-      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page={{ page.previous_page_number }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Previous<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page=<span>{</span><span>{</span> page.previous_page_number <span>}</span><span>}</span>"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Previous<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
     <span>{</span><span>%</span> endif <span>%</span><span>}</span>
     <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">span</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">class</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"current"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
-      Page {{ page.number }} of {{ page.paginator.num_pages }}.
+      Page <span>{</span><span>{</span> page.number <span>}</span><span>}</span> of <span>{</span><span>{</span> page.paginator.num_pages <span>}</span><span>}</span>.
     <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
       <span>{</span><span>%</span> if page.has_next <span>%</span><span>}</span>
-        <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page={{ page.next_page_number }}"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Next<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
+        <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">href</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"?page=<span>{</span><span>{</span> page.next_page_number <span>}</span><span>}</span>"</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>Next<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
       <span>{</span><span>%</span> endif <span>%</span><span>}</span>
   <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
 <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>    </code></pre></div>
