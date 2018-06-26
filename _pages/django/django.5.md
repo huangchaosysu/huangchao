@@ -159,11 +159,14 @@ def detail(request, question_id):
 <p>我们来讲解一下detail页面是怎么产生的。首先在detail这个view里，我们依据question_id来查询出一个Question(except分支暂时忽略了question_id不存在的情况)，调用render把得到的question对象传递给模板detail.html。在模板里，通过点号'.'来获取对象的属性，就跟python代码里一样。例如<code>>{{ question.question_text }}</code>是获取我们传入的question的question_text这个属性的值，<code>for</code>这句代码实际调用了question.choice_set.all()这个方法，而 for那条语句是表示循环，后面我们会有专门的章节来讲解django模板的tag</p>
 
 ### 消除硬编码的URL
-<p>在index.html里，有个URL是这么写的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了 {% url %} 这个tag来解决这个问题(其实就是反向解析url)</p>
+<p>在index.html里，有个URL是这么写的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>，这么写程序虽然可以正常工作，但是有个问题就是，日后如果我们修改了index这个view的URL，那么我们还要修改index.html这个模板才行。好在Django提供了<code>url</code> 这个tag来解决这个问题(其实就是反向解析url)</p>
 
-<pre>现在我们来修改一下index.html, 把之前的<code><span><</span>li<span>></span><span><</span>a href="/polls/{{ question.id }}/"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code>修改为<code><span><</span>li<span>></span><span><</span>a href="{% url 'detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></code></pre>
+现在我们来修改一下index.html, 把之前的  
+![](/assets/images/django/8)
+修改为  
+![](/assets/images/django/9)
 
-<p>这种写法的工作原理是，Django在模板里发现{% url %}这个tag的时候会到polls.urls这个文件所定义的url里面寻找对应名字的url，本例中就是寻找名字为'detail'的url，也就是</p>
+<p>这种写法的工作原理是，Django在模板里发现url这个tag的时候会到polls.urls这个文件所定义的url里面寻找对应名字的url，本例中就是寻找名字为'detail'的url，也就是</p>
 <pre><code>url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail')</code></pre>
 <p>日后如果我们需要修改detail这个view对应的url，我们只需要在polls/urls.py这个文件里修改对应的url映射就可以了</p>
 
@@ -186,14 +189,16 @@ urlpatterns = [
 </pre>
 <p>注意到，我们设置了app_name这个属性，它的作用是告诉Django，此文件中的urlconf从属于命名空间polls. 那么怎么使用呢？</p>
 <p>修改index.html, 把</p>
-<pre><span><</span>li<span>></span><span><</span>a href="{% url 'detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></pre>
+
+![](/assets/images/django/10)
 <p>修改为</p>
-<pre><span><</span>li<span>></span><span><</span>a href="{% url 'polls:detail' question.id %}"<span>></span>{{ question.question_text }}</a><span><</span><span>/</span>li<span>></span></pre>
+
+![](/assets/images/django/11)
 
 <p>就可以了，命名空间的使用方式为{% url 'namespace:name' %}</p>
 <p>如果你已经掌握了本章节的内容，那么赶紧进入下一章节的学习吧</p>
 
-注意：django已经出了新的url的编写方法，像这样
+注意：django2.0已经出了新的url的编写方法，像这样
 ```
 from django.urls import path
 
