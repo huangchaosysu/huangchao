@@ -277,4 +277,6 @@ django:
         url: /django/firstapp4/
       - title: "PART-5"
         url: /django/firstapp5/
+      - title: "PART-6"
+        url: /django/firstapp6/
       
