@@ -1007,4 +1007,3 @@ order_created.delay(order.<span class="bu">id</span>)</code></pre></div>
 <p>在这一章中，你创建了一个最基本的商店应用。你创建了产品目录以及使用会话的购物车。你实现了定制化的上下文处理器来使购物车在你的模板中可用，实现了一个下单表格。你也学到了如何用 Celery 执行异步任务。</p>
 <p>在下一章中，你将会学习在你的商店中整合一个支付网关，添加管理站点的定制化动作，以 CSV 的形式导出数据，以及动态的生成 PDF 文件。</p>
 </div>
-<p>本教程出自由Antonio Melé编写的《Django By Example》, 后由<a href="http://www.cnblogs.com/levelksk/">@夜夜月月</a>等童鞋辛劳翻译。请各位读者给他们的主页添点人气</p>
