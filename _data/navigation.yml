@@ -301,3 +301,7 @@ django:
         url: /django/example7/
       - title: "第八章"
         url: /django/example8/
+      - title: "第九章"
+        url: /django/example9/
+      - title: "第十章"
+        url: /django/example10/
