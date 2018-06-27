@@ -837,4 +837,3 @@ messages.error(request, <span class="hljs-string">'Something went wrong'</span>)
 <p>在本章中，你学习了如何创建一个认证（authentication）系统到你的网站并且创建了定制的用户profile。你还为你的网站添加了社交认证（authentication）。</p>
 <p>在下一章中，你会学习如何创建一个图片收藏系统（image bookmarking system），生成图片缩微图，创建AJAX视图（views）。</p>
 </div>
-<p>本教程出自由Antonio Melé编写的《Django By Example》, 后由<a href="http://www.cnblogs.com/levelksk/">@夜夜月月</a>等童鞋辛劳翻译。请各位读者给他们的主页添点人气</p>

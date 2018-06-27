@@ -295,3 +295,5 @@ django:
         url: /django/example4/
       - title: "第五章"
         url: /django/example5/
+      - title: "第六章"
+        url: /django/example6/

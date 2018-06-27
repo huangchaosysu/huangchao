@@ -795,4 +795,3 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
 <p>在这一章中，我们创建了一个 JavaScript 书签来从其他网站分享图片到我们的网站。你已经用 jQuery 实现了 AJAX 视图，还添加了 AJAX 分页。</p>
 <p>在下一章中，将会教你如何创建一个粉丝系统和一个活动流。你将和通用关系、信号、与反规范化打交道。你也将学习如何在 Django  中使用 Redis。</p>
 </div>
-<p>本教程出自由Antonio Melé编写的《Django By Example》, 后由<a href="http://www.cnblogs.com/levelksk/">@夜夜月月</a>等童鞋辛劳翻译。请各位读者给他们的主页添点人气</p>
