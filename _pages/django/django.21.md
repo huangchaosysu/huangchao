@@ -402,7 +402,6 @@ urlpatterns <span class="op">=</span> [
 <p>你已经构建了一个简单的API允许其他服务器来程序化的访问课程应用。REST Framework还允许你通过<em>ModelViewSet</em>视图设置去管理创建以及编辑对象。我们已经覆盖了Django Rest Framework的主要部分，但是你可以找到该框架更多的特性，通过查看它的文档，地址在 <a href="http://www.django-rest-framework.org/" class="uri">http://www.django-rest-framework.org/</a> 。</p>
 <h3 id="总结">总结</h3>
 <p>在这章中，你创建了一个RESTful API给其他的服务器去与你的web应用交互。</p>
-<p>一个额外的章节<strong>第十三章，Going Live</strong>需要在线下载：<a href="https://www/" class="uri">https://www</a>. packtpub.com/sites/default/files/downloads/Django_By_Example_ GoingLive.pdf 。第十三章将会教你如何使用uWSGI以及NGINX去构建一个生产环境。你还将学习到如何去导入一个定制中间件以及创建定制管理命令。</p>
 <p>你已经到达这本书的结尾。恭喜你！你已经学习到了通过Django构建一个成功的web应用所需的技能。这本书指导你通过其他的技术与Django集合去开发了几个现实生活能用到的项目。现在你已经准备好去创建你自己的Django项目了，无论是一个简单的样品还是一个一个强大的wen应用。</p>
 <p>祝你下一次Django的冒险好运！</p>
 </div>
