@@ -117,3 +117,14 @@ http://opentutorial.info/django/firstapp6/
 http://opentutorial.info/django/firstapp7/
 http://opentutorial.info/django/firstapp8/
 http://opentutorial.info/django/example1/
+http://opentutorial.info/django/example2/
+http://opentutorial.info/django/example3/
+http://opentutorial.info/django/example4/
+http://opentutorial.info/django/example5/
+http://opentutorial.info/django/example6/
+http://opentutorial.info/django/example7/
+http://opentutorial.info/django/example8/
+http://opentutorial.info/django/example9/
+http://opentutorial.info/django/example10/
+http://opentutorial.info/django/example11/
+http://opentutorial.info/django/example12/
