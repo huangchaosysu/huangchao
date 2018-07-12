@@ -128,3 +128,7 @@ http://opentutorial.info/django/example9/
 http://opentutorial.info/django/example10/
 http://opentutorial.info/django/example11/
 http://opentutorial.info/django/example12/
+http://opentutorial.info/golang/golang-struct-json/
+http://opentutorial.info/linux/hot-to-recycle-space-from-mysql/
+http://opentutorial.info/linux/how-to-remove-mysql/
+http://opentutorial.info/linux/vscode-install-go-tools/
