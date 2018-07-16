@@ -132,3 +132,4 @@ http://opentutorial.info/golang/golang-struct-json/
 http://opentutorial.info/linux/hot-to-recycle-space-from-mysql/
 http://opentutorial.info/linux/how-to-remove-mysql/
 http://opentutorial.info/linux/vscode-install-go-tools/
+http://opentutorial.info/linux/number-puzzle-1/
