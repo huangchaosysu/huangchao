@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "Pycharm下划线变量"
+title: "Python里的下划线变量"
 date: 2018-06-14 15:17:52
 tags:
   - Python
