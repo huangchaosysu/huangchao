@@ -136,4 +136,4 @@ http://opentutorial.info/%E7%AE%97%E6%B3%95/number-puzzle-1/
 http://opentutorial.info/dva/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/dva-loading-plugin/
 http://opentutorial.info/linux/nginx-loadbalance-proxy/
 http://opentutorial.info/npm/%E5%89%8D%E7%AB%AF/how-to-change-npm-source/
-https://huangchaosysu.github.io/tax/dist/
+http://tax.opentutorial.info/dist/
