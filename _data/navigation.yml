@@ -12,12 +12,8 @@ main:
     url: /django/overview/
   - title: "Radio"
     url: http://radio.opentutorial.info
-  - title: "我的应用"
-    children:
-      - title: "Radio"
-        url: http://radio.opentutorial.info
-      - title: "ABOUT"
-        url: /about/
+  - title: "个税计算器"
+    url: https://huangchaosysu.github.io/tax/dist/
   - title: "ABOUT"
     url: /about/
 
