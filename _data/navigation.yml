@@ -13,7 +13,7 @@ main:
   - title: "Radio"
     url: http://radio.opentutorial.info
   - title: "个税计算器"
-    url: https://huangchaosysu.github.io/tax/dist/
+    url: http://tax.opentutorial.info/dist/
   - title: "ABOUT"
     url: /about/
 
