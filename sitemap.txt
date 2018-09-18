@@ -137,3 +137,5 @@ http://opentutorial.info/dva/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/dva-loading-pl
 http://opentutorial.info/linux/nginx-loadbalance-proxy/
 http://opentutorial.info/npm/%E5%89%8D%E7%AB%AF/how-to-change-npm-source/
 http://tax.opentutorial.info/dist/
+http://opentutorial.info/ganglia/custome-ganglia-script/
+http://opentutorial.info/linux/shell-braces/
