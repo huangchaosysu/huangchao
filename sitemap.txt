@@ -140,3 +140,4 @@ http://tax.opentutorial.info/dist/
 http://opentutorial.info/ganglia/custome-ganglia-script/
 http://opentutorial.info/linux/shell-braces/
 http://opentutorial.info/tcp/socket/max-tcp-connections/
+http://opentutorial.info/%E7%AE%97%E6%B3%95/svm-multi-classification/
