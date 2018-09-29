@@ -14,6 +14,6 @@ categories:
 
 ![](/assets/images/posts/tcpudp.webp)
 
-网友精辟概括:
+关于TCP和UDP的区别，网友的精辟回复
 
     @码农分神桑:  TCP是：你瓶口对到嘴上了吗？对到嘴上了吗？对到嘴上了吗？好，给你水喝。UDP是：给你给你都给你，我TM管你喝不喝得到。
