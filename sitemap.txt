@@ -143,3 +143,4 @@ http://opentutorial.info/tcp/socket/max-tcp-connections/
 http://opentutorial.info/%E7%AE%97%E6%B3%95/svm-multi-classification/
 http://opentutorial.info/%E7%BD%91%E7%BB%9C/diff-between-tcp-udp/
 http://opentutorial.info/python/python-skills/
+http://opentutorial.info/python/python-tools/
