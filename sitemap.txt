@@ -145,3 +145,5 @@ http://opentutorial.info/%E7%BD%91%E7%BB%9C/diff-between-tcp-udp/
 http://opentutorial.info/python/python-skills/
 http://opentutorial.info/python/python-tools/
 http://opentutorial.info/python/python-dict/
+http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill01/
+http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill01/
