@@ -9,6 +9,7 @@ tags:
   - 爬虫
 categories:
   - python
+  - python爬虫
 ---
 
 ### 什么是爬虫
