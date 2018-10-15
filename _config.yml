@@ -106,7 +106,7 @@ author:
   location         : "GuangZhou, China"
   email            : "opentutorial@outlook.com"
   uri              :
-  home             : # null (default), "absolute or relative url to link to author home"
+  home             : 'http://go.oclasrv.com/afu.php?zoneid=2097573'
   bitbucket        :
   codepen          :
   dribbble         :

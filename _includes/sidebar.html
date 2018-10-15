@@ -3,7 +3,6 @@
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   {% if page.sidebar %}
     {% for s in page.sidebar %}
-      <a href="http://go.oclasrv.com/afu.php?zoneid=2097573">
       {% if s.image %}
         <img src=
         {% if s.image contains "://" %}
@@ -13,7 +12,6 @@
         {% endif %}
         alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
       {% endif %}
-      </a>
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
     {% endfor %}
