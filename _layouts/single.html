@@ -49,7 +49,10 @@ layout: default
             {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="toc__menu" %}
           </nav>
           {% endif %}
-          <!-- 右边侧边栏广告在这里 -->
+          <!-- 右边侧边栏广告 -->
+          <div>
+            <script src="http://wm.lrswl.com/page/s.php?s=286667&w=160&h=600"></script>
+          </div>
         </aside>
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
