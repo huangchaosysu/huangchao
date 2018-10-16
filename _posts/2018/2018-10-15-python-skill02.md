@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 title: "python实用技法-02"
-date: 2018-10-15 14:30:53
+date: 2018-10-16 10:30:53
 # toc: true
 tags:
   - python
@@ -13,42 +13,56 @@ categories:
 
 
 
-* 现在有两个字典，我们想找出它们中间可能相同的地方（相同的键、相同的值）
+* 我们想在字典上对数据执行各式各样的计算，例如：最大值、最小值、排序等
 
 ### 解决方案
 
-只需要用过keys()或者item()方法执行常见的集合操作（并集、交集、差集）即可。
+zip()函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。
 
+假设有一个字典，在股票名称和对应价格之间做了映射：
 ```
-a={
-    'x':1,
-    'y':2,
-    'z':3
+prices={
+'ACME':45.23,
+'AAPL':612.78,
+'IBM':205.55,
+'HPQ':37.20,
+'FB':10.75
 }
-b={
-    'w':10,
-    'x':11,
-    'y':2
+```
+为了能对字典内容做些有用的计算，通常会利用zip()函数将字典的键和值反转过来。
+```
+prices={
+'ACME':45.23,
+'AAPL':612.78,
+'IBM':205.55,
+'HPQ':37.20,
+'FB':10.75
 }
-
-#找出 在两个字典中都存在的键
-print(a.keys() & b.keys())
-
-#找出 存在a却不存在b的键
-print(a.keys() -b.keys())
-
-#找出两个字典中，键和值都同时相等的数据
-print(a.items() & b.items())
 ```
 
-运行结果
+```
+#找出价格最低放入股票
+min_price=min(zip(prices.values(),prices.keys()))
+print(min_price)
+
+
+#找出价格最高放入股票
+max_price=max(zip(prices.values(),prices.keys()))
+print(max_price)
+
+#同样，要对数据排序只要使用zip()再配合sorted()
+prices_sorted=sorted(zip(prices.values(),prices.keys()))
+print(prices_sorted)
+运行结果：
+
+(10.75, 'FB')
+(612.78, 'AAPL')
+[(10.75, 'FB'), (37.2, 'HPQ'), (45.23, 'ACME'), (205.55, 'IBM'), (612.78, 'AAPL')]
+```
+注意，zip()创建的迭代器只能被消费一次，例如下面
 
 ```
-{'y', 'x'}
-{'z'}
-{('y', 2)
+zip_price=zip(prices.values(),prices.keys())
+min_price=min(zip_price) #ok
+min_price=min(zip_price) #报错
 ```
-
-注意:字典中的values()不支持上面的集合操作，因为字典同一个值可能会对应多个键。
-
-另外也可参考使用set操作
