@@ -49,9 +49,7 @@ layout: default
             {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="toc__menu" %}
           </nav>
           {% endif %}
-          <div style="margin-top: 2em">
-            <a href="https://publishers.propellerads.com/#/pub/auth/signUp?refId=T2e7"><img src="http://promo.propellerads.com/300x250-propellerads-monetize-traffic.gif" alt="PropellerAds"></a>
-          </div>
+          <!-- 右边侧边栏广告在这里 -->
         </aside>
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
