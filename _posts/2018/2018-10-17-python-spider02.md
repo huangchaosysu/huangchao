@@ -37,7 +37,7 @@ Selenium 自己不带浏览器，它需要与第三方浏览器结合在一起�
 
 PhantomJS：是一个“无头”（headless）浏览器。它会把网站加载到内存并执行页面上的JavaScript，但是它不会向用户展示网页的图形界面。把Selenium和PhantomJS 结合在一起，就可以运行一个非常强大的网络爬虫了，可以处理cookie、JavaScript、header，以及任何你需要做的事情。
 
-PhantomJS并不是Python的第三方库，不能用pip安装。它是一个完善的浏览器，所以你需要去它的官方网站下载，然后把可执行文件拷贝到Python安装目录的Scripts文件夹，像这样：
+PhantomJS并不是Python的第三方库，不能用pip安装。它是一个完善的浏览器，所以你需要去它的官方网站下载，然后把可执行文件拷贝到Python安装目录的Scripts文件夹, 或者随便一个在PATH中的目录
 
 开始干活！
 
