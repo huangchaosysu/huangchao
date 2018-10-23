@@ -151,3 +151,4 @@ http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/pytho
 http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill03/
 http://opentutorial.info/python/python%E7%88%AC%E8%99%AB/python-spider02/
 http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill04/
+http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill05/
