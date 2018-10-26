@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "python爬虫入门-03-分布式爬虫"
+title: "python爬虫入门-04-分布式爬虫"
 date: 2018-10-24 10:30:53
 # toc: true
 tags:
