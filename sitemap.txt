@@ -157,3 +157,5 @@ http://opentutorial.info/python/python%E7%88%AC%E8%99%AB/python-spider04/
 http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill06/
 http://opentutorial.info/python/gunicorn-intro/
 http://opentutorial.info/python/python%E7%88%AC%E8%99%AB/python-spider05/
+http://opentutorial.info/linux/ubuntu/ubuntu-source/
+http://zhongguose.opentutorial.info/
