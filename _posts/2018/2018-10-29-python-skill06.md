@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "python实用技法-05"
+title: "python实用技法-06"
 date: 2018-10-29 10:30:53
 # toc: true
 tags:
