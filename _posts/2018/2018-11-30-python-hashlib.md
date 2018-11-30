@@ -7,7 +7,7 @@ date: 2018-11-30 10:30:53
 tags:
   - python
   - hashlib
-  md5
+  - md5
 categories:
   - python
   - python模块
