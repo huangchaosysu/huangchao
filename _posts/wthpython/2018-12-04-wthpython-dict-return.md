@@ -6,7 +6,8 @@ date: 2018-12-04 10:30:53
 # toc: true
 tags:
   - python
-  - 字符串
+  - python dic
+  - python return
 categories:
   - wtfpython
 ---
