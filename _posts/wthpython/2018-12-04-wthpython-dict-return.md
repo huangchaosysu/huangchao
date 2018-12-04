@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "wthpython-奇怪的字典和return"
+title: "wtfpython-奇怪的字典和return"
 date: 2018-12-04 10:30:53
 # toc: true
 tags:

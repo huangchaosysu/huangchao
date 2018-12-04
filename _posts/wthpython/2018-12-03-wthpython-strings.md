@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "wthpython-奇怪的字符串"
+title: "wtfpython-奇怪的字符串"
 date: 2018-12-03 10:30:53
 # toc: true
 tags:
