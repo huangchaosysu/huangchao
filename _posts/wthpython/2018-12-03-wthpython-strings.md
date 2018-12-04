@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 title: "wthpython-奇怪的字符串"
-date: 2018-11-30 10:30:53
+date: 2018-12-03 10:30:53
 # toc: true
 tags:
   - python
@@ -60,5 +60,5 @@ False
     * 含有ASCII字母（a-zA-Z），数字以及下划线以外的字符的字符串不会被“驻留”。这一条规则解释了'wtf!'为什么没有被驻留(example 02的第二个比较), 具体的cpython实现参考[这里](https://github.com/python/cpython/blob/3.6/Objects/codeobject.c#L19)
     ![](/assets/images/wtfpython/01.png)
 
-    * 当我们在同一行里给把a，b都赋值为'wtf!'的时候，python解释器会创建一个新的对象， 并且把第二个变量也指向这个对象。这个时候解释器知道了已经有一个'wtf!'存在了。但是， 如果我们不在同一行里给a, b分别赋值'wtf!'， 由于'wtf!'没有驻留行为，解释器不知道已经有一个'wtf!'存在， 因此就会创建一个新的对象.
+    * 当我们在同一行里把a，b都赋值为'wtf!'的时候，python解释器会创建一个新的对象， 并且把第二个变量也指向这个对象。这个时候解释器知道了已经有一个'wtf!'存在了。但是， 如果我们不在同一行里给a, b分别赋值'wtf!'， 由于'wtf!'没有驻留行为，解释器不知道已经有一个'wtf!'存在， 因此就会创建一个新的对象.
     * 对于'a'*20这种语法(constant folding), 如果长度不超过20, 那么编译时（py->pyc）会得到'aaaaaaaaaaaaaaaaaaaa'这个字符串， 但是如果长度超过20, 那么对于这个字符串的值的解析就要等到运行时， 因此有了example 03
