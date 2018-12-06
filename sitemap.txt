@@ -162,3 +162,6 @@ http://zhongguose.opentutorial.info/
 http://opentutorial.info/python%E6%A8%A1%E5%9D%97/python-random/
 http://opentutorial.info/python/python%E5%AE%9E%E7%94%A8%E6%8A%80%E6%B3%95/python-skill07/
 http://opentutorial.info/python/python%E6%A8%A1%E5%9D%97/python-hashlib/
+http://opentutorial.info/wtfpython/wthpython-strings/
+http://opentutorial.info/wtfpython/wthpython-dict-return/
+http://opentutorial.info/kubernetes/k8s/microk8s/
