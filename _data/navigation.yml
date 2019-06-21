@@ -14,8 +14,8 @@ main:
     url: http://zhongguose.opentutorial.info
   - title: "Radio"
     url: http://radio.opentutorial.info
-  - title: "个税计算器"
-    url: http://tax.opentutorial.info/dist/
+  # - title: "个税计算器"
+  #   url: http://tax.opentutorial.info/dist/
   - title: "ABOUT"
     url: /about/
 
