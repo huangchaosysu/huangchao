@@ -4,10 +4,10 @@ main:
     url: http://opentutorial.info/
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "Git教程"
-  #   url: /git/
-  # - title: "Python入门"
-  #   url: /python/introduction/
+  - title: "Git教程"
+    url: /git/
+  - title: "Python入门"
+    url: /python/introduction/
   - title: "Django入门"
     url: /django/overview/
   - title: "中国色"
