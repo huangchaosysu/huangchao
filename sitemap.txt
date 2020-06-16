@@ -165,3 +165,5 @@ http://opentutorial.info/python/python%E6%A8%A1%E5%9D%97/python-hashlib/
 http://opentutorial.info/wtfpython/wthpython-strings/
 http://opentutorial.info/wtfpython/wthpython-dict-return/
 http://opentutorial.info/kubernetes/k8s/microk8s/
+http://opentutorial.info/umijs/umi%E9%83%A8%E7%BD%B2/
+http://opentutorial.info/umijs/docker%E8%B8%A9%E5%9D%91%E4%B9%8B%E4%B8%80/
